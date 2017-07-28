@@ -1,0 +1,1 @@
+Measurement of the degree to which the source code is executed by the test suite.
