@@ -4,13 +4,15 @@
 
 Just run:
 
-`report_compiler.sh`
+```
+$ ./compiler_report.sh
+```
 
 and don't forget to fill out `compiler.cfg` before you do it! :)
 
 ## Rationale
 
-The _raison d'être_ of this repo is to be structured in a way that a permits a small/medium team to collaborate easily in an asynchronnous fashion on Github (since this is the most used tool to host open-source codebases, the most common kind in the blockchain industry [Hurray to transparency!]) and at the same time ease time-to-assembly and decrease merging problems.
+The _raison d'être_ of this repo is to be structured in a way that a permits a small/medium team to collaborate easily in an asynchronnous fashion on Github and, at the same time, lower time-to-assembly and decrease merging problems.
 
 ## Structure
 

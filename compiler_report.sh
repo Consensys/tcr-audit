@@ -26,6 +26,8 @@ echo "Running through the content reports..."
 recursiverm() {
 	# increase title deepness
 	recursiveLevel=$(expr $recursiveLevel + 1)
+	# reset tab in TOC to zero
+	tabs=""
 
 	for d in $(find . -not -path '*/\.*' -exec basename {} \; -maxdepth 1 -mindepth 1); do
 		# visual cue for the section being processed
@@ -36,7 +38,9 @@ recursiverm() {
 			# TOC Handler
 			if [ "$recursiveLevel" -lt "4" ]; then
 				# assemble the number of tabs required
-				tabs=`printf "%0.s\t" $(seq 1 $(expr $recursiveLevel - 1))`
+				if [ "$recursiveLevel" -eq "3" ]; then
+					tabs="	"
+				fi
 				# and use the regex to get a github compatible slug
 				slug=`echo "$d" | iconv -t ascii//TRANSLIT | sed -E s/[^a-zA-Z0-9]/-/g | tr A-Z a-z`
 				# print its line on the TOC
@@ -59,7 +63,9 @@ recursiverm() {
 				# TOC Handler
 				if [ "$recursiveLevel" -lt "4" ]; then
 					# assemble the number of tabs required
-					tabs=`printf "%0.s\t" $(seq 1 $(expr $recursiveLevel - 1))`
+					if [ "$recursiveLevel" -eq "3" ]; then
+						tabs="	"
+					fi
 					# and use the regex to get a github compatible slug
 					slug=`echo "${d%.*}" | iconv -t ascii//TRANSLIT | sed -E s/[^a-zA-Z0-9]/-/g | tr A-Z a-z`
 					# print its line on the TOC
@@ -89,9 +95,10 @@ set -f;
 cd "$contentsFolder";
 recursiverm;
 cd ..;
-tr '<members>' "$auditMembers";
-tr '<link_to_frozen_commit>' "$frozenCommitLink";
+sed -i -n "s/<members>/$auditMembers/g" "$rootDir"/"$auditName"_report.md;
+sed -i -n "s,<link_to_frozen_commit>,$frozenCommitLink,g" "$rootDir"/"$auditName"_report.md;
 echo -e "\n * Finished writing ${auditName}_report.md successfuly.";
+rm "$rootDir"/"$auditName"_report.md-n;
 unset IFS;
 set +f
 ) #./make-toc.sh -s 1 -d 2; unset IFS; set +f)
