@@ -7,6 +7,7 @@ source ./compiler.cfg
 
 rootDir=$(pwd)
 recursiveLevel=1
+lf=$'\n';
 
 echo "Config successfully read."
 echo
@@ -28,35 +29,53 @@ recursiverm() {
 
 	for d in $(find . -not -path '*/\.*' -exec basename {} \; -maxdepth 1 -mindepth 1); do
 		# visual cue for the section being processed
-		printf "%0.s# " $(seq 1 $recursiveLevel)
-		echo "$d"
+		printf "%0.s#" $(seq 1 $recursiveLevel)
+		echo " $d"
 
 		if [ -d "$d" ]; then
+			# TOC Handler
+			if [ "$recursiveLevel" -lt "4" ]; then
+				# assemble the number of tabs required
+				tabs=`printf "%0.s\t" $(seq 1 $(expr $recursiveLevel - 1))`
+				# and use the regex to get a github compatible slug
+				slug=`echo "$d" | iconv -t ascii//TRANSLIT | sed -E s/[^a-zA-Z0-9]/-/g | tr A-Z a-z`
+				# print its line on the TOC
+				sed -i -n $"/EP-->/s/^/$tabs- [$d](#$slug)\\$lf/" "$rootDir"/"$auditName"_report.md
+			fi
+
 			# print the '#' char <recursiveLevel> amount of times for correct title deepness
 			printf "%0.s#" $(seq 1 $recursiveLevel) >> "$rootDir"/"$auditName"_report.md
 
 			#print the actual title
-			echo " $d" >> "$rootDir"/"$auditName"_report.md;
-			echo -e "\n" >> "$rootDir"/"$auditName"_report.md;
+			echo -e " $d\n" >> "$rootDir"/"$auditName"_report.md;
 
 			(cd -- "$d" && recursiverm)
 		else
-			# check the filename without extension
-			if [ "${d%.*}" != "0 - no_title" ]; then
+			# check the filenames without extension
+			if [ "${d%.*}" == "0 - Audit Intro" ]; then
+				echo "# $auditName Audit Report by ConsenSys Diligence" >> "$rootDir"/"$auditName"_report.md
+				echo -e "\n" >> "$rootDir"/"$auditName"_report.md
+			elif [ "${d%.*}" != "0 - no_title" ]; then
+				# TOC Handler
+				if [ "$recursiveLevel" -lt "4" ]; then
+					# assemble the number of tabs required
+					tabs=`printf "%0.s\t" $(seq 1 $(expr $recursiveLevel - 1))`
+					# and use the regex to get a github compatible slug
+					slug=`echo "${d%.*}" | iconv -t ascii//TRANSLIT | sed -E s/[^a-zA-Z0-9]/-/g | tr A-Z a-z`
+					# print its line on the TOC
+					sed -i -n $"/EP-->/s/^/$tabs- [${d%.*}](#$slug)\\$lf/" "$rootDir"/"$auditName"_report.md
+				fi
+
 				# print the '#' char <recursiveLevel> amount of times for correct title deepness
 				printf "%0.s#" $(seq 1 $recursiveLevel) >> "$rootDir"/"$auditName"_report.md
 
 				#print the actual title
-				echo " ${d%.*}" >> "$rootDir"/"$auditName"_report.md
-				echo -e "\n" >> "$rootDir"/"$auditName"_report.md
-			elif [ "${d%.*}" != "0 - Audit Intro" ]; then
-				echo "# $auditName Audit Report by ConsenSys Diligence" >> "$rootDir"/"$auditName"_report.md
-				echo -e "\n" >> "$rootDir"/"$auditName"_report.md
+				echo -e " ${d%.*}\n" >> "$rootDir"/"$auditName"_report.md
 			fi
 
 			# concatenate the actual file
 			cat $d >> "$rootDir"/"$auditName"_report.md
-			echo -e "\n" >> "$rootDir"/"$auditName"_report.md
+			echo -e "\n\n" >> "$rootDir"/"$auditName"_report.md
 		fi
 	done
 	recursiveLevel=$(expr $recursiveLevel - 1)
@@ -64,4 +83,15 @@ recursiverm() {
 
 # strange commands befora and after set a new delimiter char
 # so that we can loop over files with whitespaces in their names
-(IFS=$'\n'; set -f; cd "$contentsFolder"; recursiverm; cd ..; unset IFS; set +f) #./make-toc.sh -s 1 -d 2; unset IFS; set +f)
+(
+IFS=$'\n';
+set -f;
+cd "$contentsFolder";
+recursiverm;
+cd ..;
+tr '<members>' "$auditMembers";
+tr '<link_to_frozen_commit>' "$frozenCommitLink";
+echo -e "\n * Finished writing ${auditName}_report.md successfuly.";
+unset IFS;
+set +f
+) #./make-toc.sh -s 1 -d 2; unset IFS; set +f)

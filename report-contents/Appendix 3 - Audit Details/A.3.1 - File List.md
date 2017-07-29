@@ -1,6 +1,6 @@
 The following source files were included in the audit.
 
-<link to repo including frozen commit ref>
+<link_to_frozen_commit>
 
 * <file name #1>
 * <file name #2>
