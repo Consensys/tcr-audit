@@ -97,6 +97,7 @@ recursiverm;
 cd ..;
 sed -i -n "s/<members>/$auditMembers/g" "$rootDir"/"$auditName"_report.md;
 sed -i -n "s,<link_to_frozen_commit>,$frozenCommitLink,g" "$rootDir"/"$auditName"_report.md;
+sed -i -n "s/<coverage_rating>/$coverageRating/g" "$rootDir"/"$auditName"_report.md;
 echo -e "\n * Finished writing ${auditName}_report.md successfuly.";
 rm "$rootDir"/"$auditName"_report.md-n;
 unset IFS;
