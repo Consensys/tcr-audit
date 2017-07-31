@@ -17,6 +17,25 @@ if [ -z "$auditName" ]; then
     echo "Please fill out compiler.cfg"
     echo
     echo "Ending..."
+    return 1;
+fi
+
+if [[ -s "$rootDir"/"$auditName"_report.md ]]; then
+    echo "A non-empty audit report was found in here already."
+    echo "If you proceed it will be overwritten."
+    echo
+
+    read -p "Are you sure you want to proceed? [y/N]" -n 1 -r
+	echo
+
+	if [[ ! $REPLY =~ ^[Yy]$ ]]
+	then
+	    [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1 # handle exits from shell or function but don't exit interactive shell
+	fi
+
+	echo
+	# erase file contents
+	> "$rootDir"/"$auditName"_report.md
 fi
 
 echo "Running through the content reports..."
@@ -42,7 +61,7 @@ recursiverm() {
 					tabs="	"
 				fi
 				# and use the regex to get a github compatible slug
-				slug=`echo "$d" | iconv -t ascii//TRANSLIT | sed -E s/[^a-zA-Z0-9]/-/g | tr A-Z a-z`
+				slug=`echo "$d" | iconv -t ascii//TRANSLIT | sed -E s/[^a-zA-Z0-9\.]/-/g | tr -d '.' | tr A-Z a-z`
 				# print its line on the TOC
 				sed -i -n $"/EP-->/s/^/$tabs- [$d](#$slug)\\$lf/" "$rootDir"/"$auditName"_report.md
 			fi
@@ -67,7 +86,7 @@ recursiverm() {
 						tabs="	"
 					fi
 					# and use the regex to get a github compatible slug
-					slug=`echo "${d%.*}" | iconv -t ascii//TRANSLIT | sed -E s/[^a-zA-Z0-9]/-/g | tr A-Z a-z`
+					slug=`echo "${d%.*}" | iconv -t ascii//TRANSLIT | sed -E s/[^a-zA-Z0-9\.]/-/g | tr -d '.' | tr A-Z a-z`
 					# print its line on the TOC
 					sed -i -n $"/EP-->/s/^/$tabs- [${d%.*}](#$slug)\\$lf/" "$rootDir"/"$auditName"_report.md
 				fi
@@ -87,7 +106,7 @@ recursiverm() {
 	recursiveLevel=$(expr $recursiveLevel - 1)
 }
 
-# strange commands befora and after set a new delimiter char
+# strange commands before and after set a new delimiter char
 # so that we can loop over files with whitespaces in their names
 (
 IFS=$'\n';
@@ -101,5 +120,5 @@ sed -i -n "s/<coverage_rating>/$coverageRating/g" "$rootDir"/"$auditName"_report
 echo -e "\n * Finished writing ${auditName}_report.md successfuly.";
 rm "$rootDir"/"$auditName"_report.md-n;
 unset IFS;
-set +f
-) #./make-toc.sh -s 1 -d 2; unset IFS; set +f)
+set +f;
+)
