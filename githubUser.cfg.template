@@ -1,0 +1,6 @@
+# NOTE: when using this file please remove the .template extension
+# 		DO NOT push changes with credentials without doing so.
+# 		You'll be exposing your credentials if you do!!!!!
+#
+# your GitHub Personal Access Token (please check https://github.com/settings/tokens/new)
+githubToken=""

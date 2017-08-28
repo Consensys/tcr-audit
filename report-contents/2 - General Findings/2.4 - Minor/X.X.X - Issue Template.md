@@ -4,11 +4,11 @@
 
 <corpus of the issue>
 
-#### Recommendation
+**Recommendation**
 
 <corpus of the recommendation>
 
-#### Resolution
+**Resolution**
 
 * <link to a related pull request in the official project repo (optional)>
 

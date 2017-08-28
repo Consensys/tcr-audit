@@ -3,6 +3,7 @@
 # some temp settings to allow whitespaces in title files being looped over
 IFS=$'\n'; set -f
 
+# get the configs
 source ./compiler.cfg
 
 rootDir=$(pwd)

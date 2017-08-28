@@ -2,13 +2,17 @@
 
 ## Usage
 
-Just run:
+First you should fill in `compiler.cfg`.
+
+Then duplicate the `githubUser.cfg.template` file, **rename that to `githubUser.cfg`** (otherwise you'll be exposing your credentials) and fill it in as well.
+
+Then finally just run:
 
 ```
 $ ./compiler_report.sh
 ```
 
-and don't forget to fill out `compiler.cfg` before you do it! :)
+and you're all set! :)
 
 ## Rationale
 
