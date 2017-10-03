@@ -1,1 +1,1 @@
-Security audit was performed by ConsenSys team members <members>.
+Security audit was performed by <members>.
