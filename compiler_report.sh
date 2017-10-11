@@ -35,8 +35,10 @@ if [[ -s "$rootDir"/"$auditName"_report.md ]]; then
 	fi
 
 	echo
-	# erase file contents
+	# erase files' contents
 	> "$rootDir"/"$auditName"_report.md
+	echo -e "# Summary\n\n" > "$rootDir"/SUMMARY.md
+
 fi
 
 echo "Running through the content reports..."
@@ -49,7 +51,7 @@ recursiverm() {
 	# reset tab in TOC to zero
 	tabs=""
 
-	for d in $(find . -not -path '*/\.*' -exec basename {} \; -maxdepth 1 -mindepth 1); do
+	for d in $(find . -not -path '*/\.*' -exec basename {} \; -maxdepth 1 -mindepth 1 | sort); do
 		# visual cue for the section being processed
 		printf "%0.s#" $(seq 1 $recursiveLevel)
 		echo " $d"
@@ -72,6 +74,10 @@ recursiverm() {
 
 			#print the actual title
 			echo -e " $d\n" >> "$rootDir"/"$auditName"_report.md;
+
+			# do the same in the SUMMARY file
+			printf "%0.s#" $(seq 1 $recursiveLevel) >> "$rootDir"/SUMMARY.md
+			echo -e " $d\n\n" >> "$rootDir"/SUMMARY.md;
 
 			(cd -- "$d" && recursiverm)
 		else
@@ -97,6 +103,18 @@ recursiverm() {
 
 				#print the actual title
 				echo -e " ${d%.*}\n" >> "$rootDir"/"$auditName"_report.md
+
+				# use a regex to get the correct truncated path to this file
+				tPath=$(pwd)
+				tPath="${tPath#$rootDir}/$d"
+				# print in SUMMARY.md
+				echo -e "* [${d%.*}]($tPath)\n\n" >> "$rootDir"/SUMMARY.md;
+			else
+				# use a regex to get the correct truncated path to this file
+				tPath=$(pwd)
+				tPath="${tPath#$rootDir}/$d"
+				# print in SUMMARY.md
+				echo -e "* []($tPath)\n\n" >> "$rootDir"/SUMMARY.md;
 			fi
 
 			# concatenate the actual file
