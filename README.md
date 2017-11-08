@@ -9,7 +9,7 @@ Then duplicate the `githubUser.cfg.template` file, **rename that to `githubUser.
 Then finally just run:
 
 ```
-$ ./compiler_report.sh
+$ npm run assemble
 ```
 
 and you're all set! :)
