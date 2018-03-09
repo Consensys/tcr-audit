@@ -1,21 +1,5 @@
 # TCR Audit Report by ConsenSys Diligence
 
-
-<!--
-Nothing should go into this file except maybe general COMMENTS, ROLES and this TODO list
-
-TODOs:
-
-* 
-
-## Roles:
-
-* GNSPS:
-* Joseph:
-* John:
-
- -->
-
 <!-- Please don't change these comments -->
 <!-- MarkdownTOC -->
 - [1 - Introduction](#1---introduction)
@@ -23,24 +7,16 @@ TODOs:
 	- [1.2 - Summary](#12---summary)
 	- [1.3 - Materials Included in Audit](#13---materials-included-in-audit)
 - [2 - General Findings](#2---general-findings)
-	- [2.1 - Critical](#21---critical)
-	- [2.2 - Major](#22---major)
 	- [2.3 - Medium](#23---medium)
-	- [2.4 - Minor](#24---minor)
 - [3 - Specific Findings](#3---specific-findings)
 	- [3.1 - Critical](#31---critical)
 	- [3.2 - Major](#32---major)
 	- [3.3 - Medium](#33---medium)
 	- [3.4 - Minor](#34---minor)
-- [5 - Test Coverage Analysis](#5---test-coverage-analysis)
 - [Appendix 1 - Audit Participants](#appendix-1---audit-participants)
 - [Appendix 2 - Terminology](#appendix-2---terminology)
 	- [A.2.1 - Coverage](#a21---coverage)
 	- [A.2.2 - Severity](#a22---severity)
-- [Appendix 3 - Audit Details](#appendix-3---audit-details)
-	- [A.3.1 - File List](#a31---file-list)
-	- [A.3.2 - Static Analysis of Project's Files](#a32---static-analysis-of-project-s-files)
-	- [A.3.3 - File Signatures](#a33---file-signatures)
 <!--EP-->
 <!-- /MarkdownTOC -->
 <!-- Please don't change these comments -->
@@ -100,8 +76,7 @@ Token-curated registries are documented in a series of blog posts, which were us
 
 #### Dynamic Tests
 
-
-
+The `tcr` codebase contains a comprehensive test suite, but our code coverage tool, `solidity-coverage`, throws an error while running the contract migrations before any tests can be executed. The tests execute successfully using the normal test runner.
 
 #### Source Code
 
@@ -111,48 +86,6 @@ The codebase pulls in ethpm packages [`dll`](https://github.com/skmgoldin/sol-sd
 
 
 ## 2 - General Findings
-
-### 2.1 - Critical
-
-#### X.X.X - Issue Template
-
-<!-- NOTE: The name of the issue is going to be exactly the same as the name of this file! -->
-
-* <link to issue in the official project repo (optional)>
-
-<corpus of the issue>
-
-**Recommendation**
-
-<corpus of the recommendation>
-
-**Resolution**
-
-* <link to a related pull request in the official project repo (optional)>
-
-<small corpus explaining the actual changes made to fix it>
-
-
-### 2.2 - Major
-
-#### X.X.X - Issue Template
-
-<!-- NOTE: The name of the issue is going to be exactly the same as the name of this file! -->
-
-* <link to issue in the official project repo (optional)>
-
-<corpus of the issue>
-
-**Recommendation**
-
-<corpus of the recommendation>
-
-**Resolution**
-
-* <link to a related pull request in the official project repo (optional)>
-
-<small corpus explaining the actual changes made to fix it>
-
 
 ### 2.3 - Medium
 
@@ -166,46 +99,6 @@ Move token contract calls after all state changes in each function. Alternativel
 
 <https://github.com/skmgoldin/tcr/issues/17>
 
-
-
-#### X.X.X - Issue Template
-
-<!-- NOTE: The name of the issue is going to be exactly the same as the name of this file! -->
-
-* <link to issue in the official project repo (optional)>
-
-<corpus of the issue>
-
-**Recommendation**
-
-<corpus of the recommendation>
-
-**Resolution**
-
-* <link to a related pull request in the official project repo (optional)>
-
-<small corpus explaining the actual changes made to fix it>
-
-
-### 2.4 - Minor
-
-#### X.X.X - Issue Template
-
-<!-- NOTE: The name of the issue is going to be exactly the same as the name of this file! -->
-
-* <link to issue in the official project repo (optional)>
-
-<corpus of the issue>
-
-**Recommendation**
-
-<corpus of the recommendation>
-
-**Resolution**
-
-* <link to a related pull request in the official project repo (optional)>
-
-<small corpus explaining the actual changes made to fix it>
 
 
 ## 3 - Specific Findings
@@ -253,25 +146,6 @@ Remove the current item from the list as early as possible in the function, righ
 
 <small corpus explaining the actual changes made to fix it>
 
-
-
-#### X.X.X - Issue Template
-
-<!-- NOTE: The name of the issue is going to be exactly the same as the name of this file! -->
-
-* <link to issue in the official project repo (optional)>
-
-<corpus of the issue>
-
-**Recommendation**
-
-<corpus of the recommendation>
-
-**Resolution**
-
-* <link to a related pull request in the official project repo (optional)>
-
-<small corpus explaining the actual changes made to fix it>
 
 
 ### 3.2 - Major
@@ -356,25 +230,6 @@ Use [SafeMath](https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/con
 
 
 
-#### X.X.X - Issue Template
-
-<!-- NOTE: The name of the issue is going to be exactly the same as the name of this file! -->
-
-* <link to issue in the official project repo (optional)>
-
-<corpus of the issue>
-
-**Recommendation**
-
-<corpus of the recommendation>
-
-**Resolution**
-
-* <link to a related pull request in the official project repo (optional)>
-
-<small corpus explaining the actual changes made to fix it>
-
-
 ### 3.3 - Medium
 
 #### 3.3.1 - Integer underflow in withdrawVotingRights
@@ -411,25 +266,6 @@ Use [SafeMath](https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/con
 
 <https://github.com/skmgoldin/tcr/issues/27>
 
-
-
-#### X.X.X - Issue Template
-
-<!-- NOTE: The name of the issue is going to be exactly the same as the name of this file! -->
-
-* <link to issue in the official project repo (optional)>
-
-<corpus of the issue>
-
-**Recommendation**
-
-<corpus of the recommendation>
-
-**Resolution**
-
-* <link to a related pull request in the official project repo (optional)>
-
-<small corpus explaining the actual changes made to fix it>
 
 
 ### 3.4 - Minor
@@ -474,39 +310,6 @@ Whitelisted applicants can exit the registry when they discover new information 
 If this is desired behavior, keep it. Just pointing out the discrepancy.
 
 <https://github.com/skmgoldin/tcr/issues/28>
-
-
-
-#### X.X.X - Issue Template
-
-<!-- NOTE: The name of the issue is going to be exactly the same as the name of this file! -->
-
-* <link to issue in the official project repo (optional)>
-
-<corpus of the issue>
-
-**Recommendation**
-
-<corpus of the recommendation>
-
-**Resolution**
-
-* <link to a related pull request in the official project repo (optional)>
-
-<small corpus explaining the actual changes made to fix it>
-
-
-## 5 - Test Coverage Analysis
-
-Testing is implemented using the Truffle Framework.
-
-Automated measurement was done using [Solidity-Coverage](https://github.com/sc-forks/solidity-coverage).
-
-#### Coverage Notes:
-
-See the `index.html` in the attached `coverage.zip`.
-
-* Coverage Rating: **** (_out of 5_)
 
 
 ## Appendix 1 - Audit Participants
@@ -581,98 +384,4 @@ Critical issues are directly exploitable bugs or security vulnerabilities.
 
 Left unaddressed these issues are highly likely or guaranteed to cause major
 problems or potentially a full failure in the operations of the contract.
-
-
-## Appendix 3 - Audit Details
-
-### A.3.1 - File List
-
-The following source files were included in the audit.
-
-https://github.com/skmgoldin/tcr/commit/3648a67986c11c2aa8290f4727c9db7130ff7c1c
-
-* <file name #1>
-* <file name #2>
-* ...
-
-
-### A.3.2 - Static Analysis of Project's Files
-
-#### A.4.2.1 - File Count
-
-The number of solidity files present in the project is:
-
-```
-$ find . -name '*.sol' | wc -l
-
-<command output>
-```
-
-
-#### A.4.2.2 - LOC Count
-
-The number of LOC present in the project is:
-
-```
-$ find . -name '*.sol' | xargs wc -l
-
-<command output>
-```
-
-
-#### A.4.2.3 - ABI Inspection
-
-How many functions are there in the project's contracts? (please see _Notes_ below)
-
-```
-<matching command output>
-```
-
-How many state-changing functions are there in the project?
-
-```
-<matching command output>
-```
-
-NIX command used to generate these statistic:
-
-```
-**output the ABI to a file using solc**
-$ solc --abi contracts/*.sol > abi.json
-
-**how many functions are there?**
-$ cat abi.json | grep -o \"type\":\"function\" | wc -l
-
-**how many functions are state changing?**
-$ cat abi.json | grep -o \"constant\":false | wc -l
-```
-
-
-#### A.4.2.4 - External Call Count
-
-How many external calls are there in the project?
-
-```
-<command output>
-```
-
-NIX command used for the statistic:
-
-```
-egrep '\.\w*\(.*\)' contracts/* -nr
-```
-
-
-### A.3.3 - File Signatures
-
-The SHA256 hash of each files at the time of the audit was as follows.
-
-https://github.com/skmgoldin/tcr/commit/3648a67986c11c2aa8290f4727c9db7130ff7c1c
-
-```
-$ shasum -a 256 *
-
-<output of the command>
-```
-
 
