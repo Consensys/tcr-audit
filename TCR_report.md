@@ -310,7 +310,7 @@ Attempting to generalize `hasBeenRevealed` risks locking up tokens. Replacing it
 
 **Recommendation**
 
-Use SafeMath for arithmetic.
+Use [SafeMath](https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/math/SafeMath.sol) for arithmetic.
 
 <https://github.com/ConsenSys/PLCRVoting/issues/25>
 
@@ -350,7 +350,7 @@ In `challengeReparameterization`, don't reference `pMinDeposit`. Reference `prop
 
 **Recommendation**
 
-Use SafeMath for arithmetic, and assert that these calculations succeed in processProposal so proposals can't get the contract in a state where the arithmetic for new challenges will revert every transaction.
+Use [SafeMath](https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/math/SafeMath.sol) for arithmetic, and assert that these calculations succeed in processProposal so proposals can't get the contract in a state where the arithmetic for new challenges will revert every transaction.
 
 <https://github.com/skmgoldin/tcr/issues/19>
 
@@ -383,7 +383,7 @@ Use SafeMath for arithmetic, and assert that these calculations succeed in proce
 
 **Recommendation**
 
-Use SafeMath for arithmetic.
+Use [SafeMath](https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/math/SafeMath.sol) for arithmetic.
 
 <https://github.com/ConsenSys/PLCRVoting/issues/21>
 
@@ -395,7 +395,7 @@ Use SafeMath for arithmetic.
 
 **Recommendation**
 
-Use SafeMath for arithmetic, and assert that these calculations succeed in `processProposal` so proposals can't get the contract in a state where the arithmetic for new proposals will revert every transaction.
+Use [SafeMath](https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/math/SafeMath.sol) for arithmetic, and assert that these calculations succeed in `processProposal` so proposals can't get the contract in a state where the arithmetic for new proposals will revert every transaction.
 
 <https://github.com/skmgoldin/tcr/issues/18>
 
@@ -407,7 +407,7 @@ Use SafeMath for arithmetic, and assert that these calculations succeed in `proc
 
 **Recommendation**
 
-Use SafeMath for arithmetic. If the token holders set `applyStageLen` too high, all new applications will revert until they pass a proposal to change the setting.
+Use [SafeMath](https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/math/SafeMath.sol) for arithmetic. If the token holders set `applyStageLen` too high, all new applications will revert until they pass a proposal to change the setting.
 
 <https://github.com/skmgoldin/tcr/issues/27>
 
