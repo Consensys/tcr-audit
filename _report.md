@@ -73,19 +73,29 @@ a full review of the contract source code.  The primary areas of focus include:
 
 #### General Overview of Contract System
 
+A token-curated registry is composed of a registry of entries, editable settings for the registry, and a voting system to approve or reject new registry entries and new settings.
 
+Applicants submit their data and a required deposit to the `Registry` contract. The application remains in the apply stage to allow for challenges before it is included in the registry. A challenger must also transfer the required deposit to contract to initiate a challenge. `Registry` uses a `PLCRVoting` contract to hold a token-weighted vote on the registry entry. The winner between the applicant and the challenger is rewarded with part of the loser's deposit. The rest of the loser's deposit is split among the tokens that voted on the winning side. After an entry is accepted into the registry, it can be challenged at any time.
+
+'Parameterizer' holds the settings for itself and the registry. Changes to these settings use the same `PLCRVoting` contract and the same challenge mechanism as `Registry`.
+
+`PLCRVoting`'s complexity comes from the need to share tokens between polls using partial-lock commit-reveal voting. A `DLL` (doubly-linked list) contract stores the IDs of each user's active polls sorted by the number of tokens that were used to vote. When a vote is revealed, its entry is removed from the list. `PLCRVoting` prevents users from withdrawing tokens that would lower their balance below the number used in the active poll that used the most tokens, which is at the end of the list.
 
 
 #### Overview of Findings
 
-
+The contract system behaves as intended in rational scenarios, but the reliance on sane user input makes it possible for malicious proposals to lock up tokens or distribute them to unintended recipients. This requires those proposals to survive a challenge, which is difficult, but possible. In addition, users who interact with the contracts in unexpected ways can lock up their tokens.
 
 
 ### 1.3 - Materials Included in Audit
 
 #### Documentation
 
+Token-curated registries are documented in a series of blog posts, which were used as the reference documentation for this audit.
 
+* [Token-Curated Registries 1.0](https://medium.com/@ilovebagels/token-curated-registries-1-0-61a232f8dac7)
+* [Dev Diary I: A Walkthrough of PLCR Voting in Solidity](https://medium.com/@AdChain/a-walkthrough-of-plcr-voting-in-solidity-92420bd5b87c)
+* [Dev Diary II: A Walkthrough of the adChain Registry TCR in Solidity](https://medium.com/@AdChain/a-walkthrough-of-the-adchain-registry-tcr-in-solidity-72addcde17fb)
 
 
 #### Dynamic Tests
@@ -95,7 +105,9 @@ a full review of the contract source code.  The primary areas of focus include:
 
 #### Source Code
 
+The audit covered the codebase as of commit [b2065612](https://github.com/skmgoldin/tcr/tree/b206561249ed1779f10aa4ba390ffee676148134).
 
+The codebase pulls in ethpm packages [`dll`](https://github.com/skmgoldin/sol-sdll) and [`attrstore`](https://github.com/skmgoldin/sol-attrstore) via Truffle. `PLCRVoting` is copied into the codebase from its [original source](https://github.com/ConsenSys/PLCRVoting).
 
 
 ## 2 - General Findings

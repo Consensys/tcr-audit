@@ -1,0 +1,3 @@
+The audit covered the codebase as of commit [b2065612](https://github.com/skmgoldin/tcr/tree/b206561249ed1779f10aa4ba390ffee676148134).
+
+The codebase pulls in ethpm packages [`dll`](https://github.com/skmgoldin/sol-sdll) and [`attrstore`](https://github.com/skmgoldin/sol-attrstore) via Truffle. `PLCRVoting` is copied into the codebase from its [original source](https://github.com/ConsenSys/PLCRVoting).
