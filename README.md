@@ -7,12 +7,7 @@
 	- [1.2 - Summary](#12---summary)
 	- [1.3 - Materials Included in Audit](#13---materials-included-in-audit)
 - [2 - General Findings](#2---general-findings)
-	- [2.3 - Medium](#23---medium)
 - [3 - Specific Findings](#3---specific-findings)
-	- [3.1 - Critical](#31---critical)
-	- [3.2 - Major](#32---major)
-	- [3.3 - Medium](#33---medium)
-	- [3.4 - Minor](#34---minor)
 - [Appendix 1 - Audit Participants](#appendix-1---audit-participants)
 - [Appendix 2 - Terminology](#appendix-2---terminology)
 	- [A.2.1 - Coverage](#a21---coverage)
@@ -87,9 +82,9 @@ The codebase pulls in ethpm packages [`dll`](https://github.com/skmgoldin/sol-sd
 
 ## 2 - General Findings
 
-### 2.3 - Medium
+### 2.1 - State changes occur after token contract calls
 
-#### 2.3.1 - State changes occur after token contract calls
+*Severity: Medium*
 
 Throughout the contract system, calls are made to the token contract followed by state changes in the contracts themselves. Token contracts can perform reentrancy attacks to take advantage of this.
 
@@ -103,9 +98,9 @@ Move token contract calls after all state changes in each function. Alternativel
 
 ## 3 - Specific Findings
 
-### 3.1 - Critical
+### 3.1 - Re-inserting the last node in the list creates a cycle
 
-#### 3.1.1 - Re-inserting the last node in the list creates a cycle
+*Severity: Critical*
 
 The changes in [`52d97ca2`](https://github.com/skmgoldin/sol-dll/commit/52d97ca2d43fe3d7125f1db241a0a5f9911452fd) address most of the inconsistent list states from re-inserting an existing node, but one remains: if the last node is reinserted with itself as the previous node, the node sets its next and previous pointers to itself, and the actual previous item in the list isn't updated to point to the right place.
 
@@ -146,9 +141,9 @@ A failing test case for this issue was added in [3b5d3f56](https://github.com/sk
 
 
 
-### 3.2 - Major
+### 3.2 - getCommitHash is an unreliable proof that _prevPollID exists
 
-#### 3.2.1 - getCommitHash is an unreliable proof that _prevPollID exists
+*Severity: Major*
 
 In `commitVote`, we check to ensure that the insert position (`_prevPollID`) actually exists by checking `getCommitHash(msg.sender, _prevPollID) != 0`. If a user sets their commit hash for that poll to zero, that check will fail even though it is a valid insertion position.
 
@@ -176,7 +171,9 @@ Attempting to generalize `hasBeenRevealed` risks locking up tokens. Replacing it
 
 
 
-#### 3.2.2 - Integer overflow in startPoll
+### 3.3 - Integer overflow in startPoll
+
+*Severity: Major*
 
 `commitEndDate: block.timestamp + _commitDuration` and `revealEndDate: block.timestamp + _commitDuration + _revealDuration` can overflow. This can result in polls that will accept votes, but never unlock tokens in the current code.
 
@@ -188,7 +185,9 @@ Use [SafeMath](https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/con
 
 
 
-#### 3.2.3 - pollExists is misleading and incomplete
+### 3.4 - pollExists is misleading and incomplete
+
+*Severity: Major*
 
 `pollExists` doesn't check if a poll exists. It attempts to check if a poll's stage times are reasonable, but misses polls that allow users to commit to a vote later than they can reveal their vote, which would lock their tokens permanently.
 
@@ -200,7 +199,9 @@ In `startPoll`, require reasonable stage times. Both must be greater than `block
 
 
 
-#### 3.2.4 - Parameterizer proposal deposits and challenge deposits can differ
+### 3.5 - Parameterizer proposal deposits and challenge deposits can differ
+
+*Severity: Major*
 
 If `pMinDeposit` is changed after a proposal has been created, tokens will not be distributed properly.
 
@@ -216,7 +217,9 @@ In `challengeReparameterization`, don't reference `pMinDeposit`. Reference `prop
 
 
 
-#### 3.2.5 - Integer underflow in challengeReparameterization
+### 3.6 - Integer underflow in challengeReparameterization
+
+*Severity: Major*
 
 `100 - get("pDispensationPct")` can underflow, which would allow tokens to be drained from the contract.
 
@@ -228,9 +231,9 @@ Use [SafeMath](https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/con
 
 
 
-### 3.3 - Medium
+### 3.7 - Integer underflow in withdrawVotingRights
 
-#### 3.3.1 - Integer underflow in withdrawVotingRights
+*Severity: Medium*
 
 `voteTokenBalance[msg.sender] - getLockedTokens(msg.sender)` can underflow. This shouldn't underflow under normal circumstances, but detecting the underflow makes it harder to exploit abnormal circumstances.
 
@@ -242,7 +245,9 @@ Use [SafeMath](https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/con
 
 
 
-#### 3.3.2 - Integer overflows in proposeReparameterization
+### 3.8 - Integer overflows in proposeReparameterization
+
+*Severity: Medium*
 
 `now + get("pApplyStageLen")` and `now + get("pApplyStageLen") + get("pCommitStageLen") + get("pRevealStageLen") + PROCESSBY` can overflow.
 
@@ -254,7 +259,9 @@ Use [SafeMath](https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/con
 
 
 
-#### 3.3.3 - Integer overflow in Registry.apply
+### 3.9 - Integer overflow in Registry.apply
+
+*Severity: Medium*
 
 `listingHash.applicationExpiry = block.timestamp + parameterizer.get("applyStageLen")` can overflow.
 
@@ -266,9 +273,9 @@ Use [SafeMath](https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/con
 
 
 
-### 3.4 - Minor
+### 3.10 - Use EIP20Interface instead of EIP20
 
-#### 3.4.1 - Use EIP20Interface instead of EIP20
+*Severity: Minor*
 
 `PLCRVoting` and `Registry` should work with any ERC20 token, but they refer to a specific implementation of an ERC20 token. This doesn't have any effect on compatibility, but could be misleading.
 
@@ -281,7 +288,9 @@ Use EIP20Interface instead of EIP20.
 
 
 
-#### 3.4.2 - Challenges with zero votes will succeed
+### 3.11 - Challenges with zero votes will succeed
+
+*Severity: Minor*
 
 PLCRVoting determines the winner with `(100 * poll.votesFor) > (poll.voteQuorum * (poll.votesFor + poll.votesAgainst))`. As a result, polls resolve as failing when they expire with no votes. This is probably the right behavior, but it's surprising.
 
@@ -299,7 +308,9 @@ Near the calls to `voting.isPassed`, document that either the challenge didn't g
 
 
 
-#### 3.4.3 - An unchallenged application cannot be cancelled
+#### 3.12 - An unchallenged application cannot be cancelled
+
+*Severity: Minor*
 
 Whitelisted applicants can exit the registry when they discover new information that threatens their deposit. New applicants cannot do so because `exit` calls `require(isWhitelisted(_listingHash))`. Even without an active challenge, a new applicant with new information cannot protect themselves from a challenge the way whitelisted applicants can.
 
