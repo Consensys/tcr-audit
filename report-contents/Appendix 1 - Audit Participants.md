@@ -1,1 +1,0 @@
-Security audit was performed by <members>.

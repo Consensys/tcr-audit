@@ -1,1 +1,0 @@
-The tests do not cover some set of non-trivial functionality.
