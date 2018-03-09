@@ -1,4 +1,4 @@
-#  Audit Report by ConsenSys Diligence
+# TCR Audit Report by ConsenSys Diligence
 
 
 <!--
@@ -511,7 +511,7 @@ See the `index.html` in the attached `coverage.zip`.
 
 ## Appendix 1 - Audit Participants
 
-Security audit was performed by .
+Security audit was performed by Niran Babalola and Suhabe Bugara.
 
 
 ## Appendix 2 - Terminology
@@ -589,7 +589,7 @@ problems or potentially a full failure in the operations of the contract.
 
 The following source files were included in the audit.
 
-
+https://github.com/skmgoldin/tcr/commit/3648a67986c11c2aa8290f4727c9db7130ff7c1c
 
 * <file name #1>
 * <file name #2>
@@ -667,7 +667,7 @@ egrep '\.\w*\(.*\)' contracts/* -nr
 
 The SHA256 hash of each files at the time of the audit was as follows.
 
-
+https://github.com/skmgoldin/tcr/commit/3648a67986c11c2aa8290f4727c9db7130ff7c1c
 
 ```
 $ shasum -a 256 *
