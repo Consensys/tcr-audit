@@ -142,9 +142,7 @@ Remove the current item from the list as early as possible in the function, righ
 
 **Resolution**
 
-* <link to a related pull request in the official project repo (optional)>
-
-<small corpus explaining the actual changes made to fix it>
+A failing test case for this issue was added in [3b5d3f56](https://github.com/skmgoldin/sol-dll/commit/3b5d3f5600106e06c0b7036a1fd5f123ad939fb0), and the recommended fix was made in [91cb2448](https://github.com/skmgoldin/sol-dll/commit/91cb2448432f8e5a98f14965f24d90e5bcf65ec2)
 
 
 
