@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title>README</title>
+      <style>.markdown-preview:not([data-use-github-style]) { padding: 2em; font-size: 1.2em; color: rgb(238, 255, 255); background-color: rgb(38, 50, 56); overflow: auto; }
+.markdown-preview:not([data-use-github-style]) > :first-child { margin-top: 0px; }
+.markdown-preview:not([data-use-github-style]) h1, .markdown-preview:not([data-use-github-style]) h2, .markdown-preview:not([data-use-github-style]) h3, .markdown-preview:not([data-use-github-style]) h4, .markdown-preview:not([data-use-github-style]) h5, .markdown-preview:not([data-use-github-style]) h6 { line-height: 1.2; margin-top: 1.5em; margin-bottom: 0.5em; color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) h1 { font-size: 2.4em; font-weight: 300; }
+.markdown-preview:not([data-use-github-style]) h2 { font-size: 1.8em; font-weight: 400; }
+.markdown-preview:not([data-use-github-style]) h3 { font-size: 1.5em; font-weight: 500; }
+.markdown-preview:not([data-use-github-style]) h4 { font-size: 1.2em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h5 { font-size: 1.1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h6 { font-size: 1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) strong { color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) del { color: rgb(156, 255, 255); }
+.markdown-preview:not([data-use-github-style]) a, .markdown-preview:not([data-use-github-style]) a code { color: rgb(0, 150, 136); }
+.markdown-preview:not([data-use-github-style]) img { max-width: 100%; }
+.markdown-preview:not([data-use-github-style]) > p { margin-top: 0px; margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) > ul, .markdown-preview:not([data-use-github-style]) > ol { margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) blockquote { margin: 1.5em 0px; font-size: inherit; color: rgb(156, 255, 255); border-color: rgb(71, 93, 105); border-width: 4px; }
+.markdown-preview:not([data-use-github-style]) hr { margin: 3em 0px; border-top: 2px dashed rgb(71, 93, 105); background: none; }
+.markdown-preview:not([data-use-github-style]) table { margin: 1.5em 0px; }
+.markdown-preview:not([data-use-github-style]) th { color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) th, .markdown-preview:not([data-use-github-style]) td { padding: 0.66em 1em; border: 1px solid rgb(71, 93, 105); }
+.markdown-preview:not([data-use-github-style]) code { color: rgb(255, 255, 255); background-color: rgb(54, 72, 80); }
+.markdown-preview:not([data-use-github-style]) pre.editor-colors { margin: 1.5em 0px; padding: 1em; font-size: 0.92em; border-radius: 3px; background-color: rgb(46, 61, 68); }
+.markdown-preview:not([data-use-github-style]) kbd { color: rgb(255, 255, 255); border-width: 1px 1px 2px; border-style: solid; border-color: rgb(71, 93, 105) rgb(71, 93, 105) rgb(59, 77, 86); border-image: initial; background-color: rgb(54, 72, 80); }
+.markdown-preview[data-use-github-style] { font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif; line-height: 1.6; word-wrap: break-word; padding: 30px; font-size: 16px; color: rgb(51, 51, 51); background-color: rgb(255, 255, 255); overflow: scroll; }
+.markdown-preview[data-use-github-style] > :first-child { margin-top: 0px !important; }
+.markdown-preview[data-use-github-style] > :last-child { margin-bottom: 0px !important; }
+.markdown-preview[data-use-github-style] a:not([href]) { color: inherit; text-decoration: none; }
+.markdown-preview[data-use-github-style] .absent { color: rgb(204, 0, 0); }
+.markdown-preview[data-use-github-style] .anchor { position: absolute; top: 0px; left: 0px; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; }
+.markdown-preview[data-use-github-style] .anchor:focus { outline: none; }
+.markdown-preview[data-use-github-style] h1, .markdown-preview[data-use-github-style] h2, .markdown-preview[data-use-github-style] h3, .markdown-preview[data-use-github-style] h4, .markdown-preview[data-use-github-style] h5, .markdown-preview[data-use-github-style] h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; }
+.markdown-preview[data-use-github-style] h1 .octicon-link, .markdown-preview[data-use-github-style] h2 .octicon-link, .markdown-preview[data-use-github-style] h3 .octicon-link, .markdown-preview[data-use-github-style] h4 .octicon-link, .markdown-preview[data-use-github-style] h5 .octicon-link, .markdown-preview[data-use-github-style] h6 .octicon-link { display: none; color: rgb(0, 0, 0); vertical-align: middle; }
+.markdown-preview[data-use-github-style] h1:hover .anchor, .markdown-preview[data-use-github-style] h2:hover .anchor, .markdown-preview[data-use-github-style] h3:hover .anchor, .markdown-preview[data-use-github-style] h4:hover .anchor, .markdown-preview[data-use-github-style] h5:hover .anchor, .markdown-preview[data-use-github-style] h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; }
+.markdown-preview[data-use-github-style] h1:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h2:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h3:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h4:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h5:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h6:hover .anchor .octicon-link { display: inline-block; }
+.markdown-preview[data-use-github-style] h1 tt, .markdown-preview[data-use-github-style] h2 tt, .markdown-preview[data-use-github-style] h3 tt, .markdown-preview[data-use-github-style] h4 tt, .markdown-preview[data-use-github-style] h5 tt, .markdown-preview[data-use-github-style] h6 tt, .markdown-preview[data-use-github-style] h1 code, .markdown-preview[data-use-github-style] h2 code, .markdown-preview[data-use-github-style] h3 code, .markdown-preview[data-use-github-style] h4 code, .markdown-preview[data-use-github-style] h5 code, .markdown-preview[data-use-github-style] h6 code { font-size: inherit; }
+.markdown-preview[data-use-github-style] h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom: 1px solid rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h1 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom: 1px solid rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h2 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h3 { font-size: 1.5em; line-height: 1.43; }
+.markdown-preview[data-use-github-style] h3 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h4 { font-size: 1.25em; }
+.markdown-preview[data-use-github-style] h4 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h5 { font-size: 1em; }
+.markdown-preview[data-use-github-style] h5 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] h6 { font-size: 1em; color: rgb(119, 119, 119); }
+.markdown-preview[data-use-github-style] h6 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] p, .markdown-preview[data-use-github-style] blockquote, .markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol, .markdown-preview[data-use-github-style] dl, .markdown-preview[data-use-github-style] table, .markdown-preview[data-use-github-style] pre { margin-top: 0px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] hr { height: 4px; padding: 0px; margin: 16px 0px; background-color: rgb(231, 231, 231); border: 0px none; }
+.markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol { padding-left: 2em; }
+.markdown-preview[data-use-github-style] ul.no-list, .markdown-preview[data-use-github-style] ol.no-list { padding: 0px; list-style-type: none; }
+.markdown-preview[data-use-github-style] ul ul, .markdown-preview[data-use-github-style] ul ol, .markdown-preview[data-use-github-style] ol ol, .markdown-preview[data-use-github-style] ol ul { margin-top: 0px; margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] li > p { margin-top: 16px; }
+.markdown-preview[data-use-github-style] dl { padding: 0px; }
+.markdown-preview[data-use-github-style] dl dt { padding: 0px; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; }
+.markdown-preview[data-use-github-style] dl dd { padding: 0px 16px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] blockquote { padding: 0px 15px; color: rgb(119, 119, 119); border-left: 4px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] blockquote > :first-child { margin-top: 0px; }
+.markdown-preview[data-use-github-style] blockquote > :last-child { margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] table { display: block; width: 100%; overflow: auto; word-break: keep-all; }
+.markdown-preview[data-use-github-style] table th { font-weight: bold; }
+.markdown-preview[data-use-github-style] table th, .markdown-preview[data-use-github-style] table td { padding: 6px 13px; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] table tr { background-color: rgb(255, 255, 255); border-top: 1px solid rgb(204, 204, 204); }
+.markdown-preview[data-use-github-style] table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+.markdown-preview[data-use-github-style] img { max-width: 100%; box-sizing: border-box; }
+.markdown-preview[data-use-github-style] .emoji { max-width: none; }
+.markdown-preview[data-use-github-style] span.frame { display: block; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.frame > span { display: block; float: left; width: auto; padding: 7px; margin: 13px 0px 0px; overflow: hidden; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] span.frame span img { display: block; float: left; }
+.markdown-preview[data-use-github-style] span.frame span span { display: block; padding: 5px 0px 0px; clear: both; color: rgb(51, 51, 51); }
+.markdown-preview[data-use-github-style] span.align-center { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-center > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-center span img { margin: 0px auto; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-right { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-right > span { display: block; margin: 13px 0px 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] span.align-right span img { margin: 0px; text-align: right; }
+.markdown-preview[data-use-github-style] span.float-left { display: block; float: left; margin-right: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-left span { margin: 13px 0px 0px; }
+.markdown-preview[data-use-github-style] span.float-right { display: block; float: right; margin-left: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-right > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] code, .markdown-preview[data-use-github-style] tt { padding: 0.2em 0px; margin: 0px; font-size: 85%; background-color: rgba(0, 0, 0, 0.04); border-radius: 3px; }
+.markdown-preview[data-use-github-style] code::before, .markdown-preview[data-use-github-style] tt::before, .markdown-preview[data-use-github-style] code::after, .markdown-preview[data-use-github-style] tt::after { letter-spacing: -0.2em; content: " "; }
+.markdown-preview[data-use-github-style] code br, .markdown-preview[data-use-github-style] tt br { display: none; }
+.markdown-preview[data-use-github-style] del code { text-decoration: inherit; }
+.markdown-preview[data-use-github-style] pre > code { padding: 0px; margin: 0px; font-size: 100%; word-break: normal; white-space: pre; background: transparent; border: 0px; }
+.markdown-preview[data-use-github-style] .highlight { margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] .highlight pre, .markdown-preview[data-use-github-style] pre { padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(247, 247, 247); border-radius: 3px; }
+.markdown-preview[data-use-github-style] .highlight pre { margin-bottom: 0px; word-break: normal; }
+.markdown-preview[data-use-github-style] pre { word-wrap: normal; }
+.markdown-preview[data-use-github-style] pre code, .markdown-preview[data-use-github-style] pre tt { display: inline; max-width: initial; padding: 0px; margin: 0px; overflow: initial; line-height: inherit; word-wrap: normal; background-color: transparent; border: 0px; }
+.markdown-preview[data-use-github-style] pre code::before, .markdown-preview[data-use-github-style] pre tt::before, .markdown-preview[data-use-github-style] pre code::after, .markdown-preview[data-use-github-style] pre tt::after { content: normal; }
+.markdown-preview[data-use-github-style] kbd { display: inline-block; padding: 3px 5px; font-size: 11px; line-height: 10px; color: rgb(85, 85, 85); vertical-align: middle; background-color: rgb(252, 252, 252); border-width: 1px; border-style: solid; border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(187, 187, 187); border-image: initial; border-radius: 3px; box-shadow: rgb(187, 187, 187) 0px -1px 0px inset; }
+.markdown-preview[data-use-github-style] a { color: rgb(51, 122, 183); }
+.markdown-preview[data-use-github-style] code { color: inherit; }
+.markdown-preview[data-use-github-style] pre.editor-colors { padding: 0.8em 1em; margin-bottom: 1em; font-size: 0.85em; border-radius: 4px; overflow: auto; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors .horizontal-scrollbar { visibility: hidden; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors:hover .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors:hover .horizontal-scrollbar { visibility: visible; }
+.markdown-preview .task-list-item-checkbox { position: absolute; margin: 0.25em 0px 0px -1.4em; }
+.markdown-preview code { text-shadow: none; }
+.bracket-matcher .region {
+  border-bottom: 1px dotted lime;
+  position: absolute;
+}
+.line-number.bracket-matcher.bracket-matcher {
+  color: rgba(238, 255, 255, 0.2);
+  background-color: #1c2429;
+}
+
+.spell-check-misspelling .region {
+  border-bottom: 2px dotted rgba(255, 51, 51, 0.75);
+}
+.spell-check-corrections {
+  width: 25em !important;
+}
+
+pre.editor-colors {
+  background-color: #263238;
+  color: #EEFFFF;
+}
+pre.editor-colors .wrap-guide {
+  background-color: #2b3940;
+}
+pre.editor-colors .indent-guide {
+  color: #2b3940;
+}
+pre.editor-colors .invisible-character {
+  color: #373b41;
+}
+pre.editor-colors .cursor-line {
+  background-color: #212b30;
+}
+pre.editor-colors .gutter {
+  background-color: #263238;
+  color: rgba(238, 255, 255, 0.2);
+}
+pre.editor-colors .gutter .line-number.cursor-line {
+  background-color: #212b30;
+  color: rgba(238, 255, 255, 0.2);
+}
+pre.editor-colors .gutter .line-number.cursor-line-no-selection {
+  color: rgba(238, 255, 255, 0.2);
+}
+pre.editor-colors .fold-marker:after,
+pre.editor-colors .gutter .line-number.folded,
+pre.editor-colors .gutter .line-number:after {
+  color: #B2CCD6;
+}
+pre.editor-colors .invisible {
+  color: #EEFFFF;
+}
+pre.editor-colors .cursor {
+  color: #009688;
+  border-width: 2px;
+}
+pre.editor-colors .selection .region {
+  background-color: #3b4d56;
+}
+pre.editor-colors .search-results .syntax--marker .region {
+  background-color: transparent;
+  border: 1px solid #B2CCD6;
+}
+pre.editor-colors .search-results .syntax--marker.current-result .region {
+  border: 1px solid white;
+}
+.syntax--comment {
+  color: #4f6875;
+}
+.syntax--keyword {
+  color: #C792EA;
+}
+.syntax--keyword.syntax--control {
+  color: #C792EA;
+}
+.syntax--keyword.syntax--control.syntax--elements {
+  color: #B2CCD6;
+}
+.syntax--keyword.syntax--operator {
+  color: #89DDF3;
+}
+.syntax--keyword.syntax--other.syntax--special-method {
+  color: #82AAFF;
+}
+.syntax--keyword.syntax--other.syntax--unit {
+  color: #FFCB6B;
+}
+.syntax--storage {
+  color: #C792EA;
+}
+.syntax--constant {
+  color: #F07178;
+}
+.syntax--constant.syntax--character.syntax--escape {
+  color: #89DDF3;
+}
+.syntax--constant.syntax--numeric {
+  color: #F78C6A;
+}
+.syntax--constant.syntax--other.syntax--color {
+  color: #89DDF3;
+}
+.syntax--constant.syntax--other.syntax--symbol {
+  color: #C3E88D;
+}
+.syntax--constant.syntax--language.syntax--null {
+  color: #FF5370;
+}
+.syntax--variable {
+  color: #EEFFFF;
+}
+.syntax--variable.syntax--interpolation {
+  color: #eb434c;
+}
+.syntax--variable.syntax--parameter.syntax--function {
+  color: #F78C6A;
+}
+.syntax--variable.syntax--language {
+  color: #FF5370;
+}
+.syntax--variable.syntax--variable.syntax--object {
+  color: #FFCB6B;
+}
+.syntax--invalid.syntax--illegal {
+  background-color: #F07178;
+  color: #263238;
+}
+.syntax--string {
+  color: #C3E88D;
+}
+.syntax--string.syntax--regexp {
+  color: #89DDF3;
+}
+.syntax--string.syntax--regexp .syntax--source.syntax--ruby.syntax--embedded {
+  color: #FFCB6B;
+}
+.syntax--string.syntax--other.syntax--link {
+  color: #F07178;
+}
+.syntax--punctuation.syntax--definition.syntax--comment {
+  color: #4f6875;
+}
+.syntax--punctuation.syntax--definition.syntax--array,
+.syntax--punctuation.syntax--definition.syntax--parameters,
+.syntax--punctuation.syntax--definition.syntax--string,
+.syntax--punctuation.syntax--definition.syntax--variable {
+  color: #EEFFFF;
+}
+.syntax--punctuation.syntax--definition.syntax--array.syntax--begin,
+.syntax--punctuation.syntax--definition.syntax--parameters.syntax--begin,
+.syntax--punctuation.syntax--definition.syntax--string.syntax--begin,
+.syntax--punctuation.syntax--definition.syntax--variable.syntax--begin,
+.syntax--punctuation.syntax--definition.syntax--array.syntax--end,
+.syntax--punctuation.syntax--definition.syntax--parameters.syntax--end,
+.syntax--punctuation.syntax--definition.syntax--string.syntax--end,
+.syntax--punctuation.syntax--definition.syntax--variable.syntax--end {
+  color: #89DDF3;
+}
+.syntax--punctuation.syntax--definition.syntax--heading,
+.syntax--punctuation.syntax--definition.syntax--identity {
+  color: #82AAFF;
+}
+.syntax--punctuation.syntax--definition.syntax--bold {
+  color: #FFE082;
+  font-weight: bold;
+}
+.syntax--punctuation.syntax--definition.syntax--italic {
+  color: #C792EA;
+  font-style: italic;
+}
+.syntax--punctuation.syntax--definition.syntax--entity {
+  color: #89DDF3;
+}
+.syntax--punctuation.syntax--section.syntax--array {
+  color: #89DDF3;
+}
+.syntax--punctuation.syntax--section.syntax--embedded {
+  color: #89DDF3;
+}
+.syntax--punctuation.syntax--separator.syntax--key-value {
+  color: #89DDF3;
+}
+.syntax--punctuation.syntax--terminator {
+  color: #89DDF3;
+}
+.syntax--support.syntax--class {
+  color: #FFCB6B;
+}
+.syntax--support.syntax--function {
+  color: #82AAFF;
+}
+.syntax--support.syntax--function.syntax--any-method {
+  color: #82AAFF;
+}
+.syntax--support.syntax--type {
+  color: #FFCB6B;
+}
+.syntax--support.syntax--variable.syntax--dom {
+  color: #FFCB6B;
+}
+.syntax--entity.syntax--name.syntax--function {
+  color: #82AAFF;
+}
+.syntax--entity.syntax--name.syntax--type {
+  color: #EEFFFF;
+}
+.syntax--entity.syntax--other.syntax--inherited-class {
+  color: #C3E88D;
+}
+.syntax--entity.syntax--other.syntax--attribute-name.syntax--pseudo-element {
+  color: #C792EA;
+}
+.syntax--entity.syntax--other.syntax--attribute-name.syntax--attribute {
+  color: #C792EA;
+}
+.syntax--entity.syntax--name.syntax--class,
+.syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #FFCB6B;
+}
+.syntax--entity.syntax--name.syntax--section {
+  color: #82AAFF;
+}
+.syntax--entity.syntax--name.syntax--tag {
+  color: #F07178;
+}
+.syntax--entity.syntax--other.syntax--attribute-name {
+  color: #FFCB6B;
+}
+.syntax--meta.syntax--class {
+  color: #FFE082;
+}
+.syntax--meta.syntax--delimiter.syntax--period {
+  color: #89DDF3;
+}
+.syntax--meta.syntax--link {
+  color: #FFCB6B;
+}
+.syntax--meta.syntax--require {
+  color: #82AAFF;
+}
+.syntax--meta.syntax--selector {
+  color: #C792EA;
+}
+.syntax--meta.syntax--separator {
+  background-color: #373b41;
+  color: #EEFFFF;
+}
+.syntax--meta.syntax--brace.syntax--round,
+.syntax--meta.syntax--brace.syntax--square {
+  color: #89DDF3;
+}
+.syntax--none {
+  color: #EEFFFF;
+}
+.syntax--markup.syntax--bold {
+  color: #FFCB6B;
+  font-weight: bold;
+}
+.syntax--markup.syntax--changed {
+  color: #C792EA;
+}
+.syntax--markup.syntax--deleted {
+  color: #F07178;
+}
+.syntax--markup.syntax--italic {
+  color: #C792EA;
+  font-style: italic;
+}
+.syntax--markup.syntax--heading .syntax--punctuation.syntax--definition.syntax--heading {
+  color: #82AAFF;
+}
+.syntax--markup.syntax--inserted {
+  color: #C3E88D;
+}
+.syntax--markup.syntax--list {
+  color: #F07178;
+}
+.syntax--markup.syntax--quote {
+  color: #FFCB6B;
+}
+.syntax--markup.syntax--raw.syntax--inline {
+  color: #C3E88D;
+}
+.syntax--source.syntax--gfm .syntax--markup {
+  -webkit-font-smoothing: auto;
+}
+.syntax--source.syntax--gfm .syntax--markup.syntax--heading {
+  color: #C3E88D;
+}
+pre.editor-colors[mini] .scroll-view {
+  padding-left: 1px;
+}
+pre.editor-colors .highlight .region.bracket-matcher {
+  z-index: inherit;
+}
+.bracket-matcher .region {
+  border-bottom: 1px solid #009688;
+  box-sizing: border-box;
+  background-color: rgba(238, 255, 255, 0.1);
+  box-shadow: inset 0 -1px 0 #009688;
+}
+pre.editor-colors .spell-check-misspelling .region {
+  z-index: auto;
+}
+.syntax--jsx.syntax--component {
+  color: #F07178;
+}
+pre.editor-colors .syntax--source.syntax--js.syntax--jsx .syntax--jsx .syntax--entity.syntax--other.syntax--attribute-name {
+  font-style: normal;
+}
+.syntax--css .syntax--support.syntax--constant {
+  color: #89DDF3;
+}
+.syntax--css .syntax--support.syntax--property-name {
+  color: #73d1c8;
+}
+.syntax--css .syntax--keyword.syntax--unit {
+  color: #F78C6A;
+}
+.syntax--css .syntax--constant.syntax--numeric {
+  color: #FFE082;
+}
+.syntax--css .syntax--constant.syntax--color {
+  color: #FFE082;
+}
+.syntax--css .syntax--constant.syntax--color .syntax--punctuation {
+  color: currentColor;
+}
+.syntax--css .syntax--entity.syntax--tag {
+  color: #B2CCD6;
+}
+.syntax--css .syntax--entity.syntax--id {
+  color: #C792EA;
+}
+.syntax--css .syntax--punctuation.syntax--delimiter {
+  color: #89DDF3;
+}
+.syntax--css .syntax--punctuation.syntax--delimiter + .syntax--constant.syntax--numeric:not(.syntax--color) {
+  color: #F78C6A;
+}
+[data-grammar*="gfm"] .syntax--markup.syntax--underline.syntax--link {
+  color: #ff869a;
+}
+[data-grammar*="gfm"] .syntax--markup.syntax--underline.syntax--link span.syntax--punctuation {
+  color: #FF5370;
+}
+[data-grammar*="gfm"] .syntax--markup.syntax--strike {
+  position: relative;
+  color: rgba(238, 255, 255, 0.5);
+}
+[data-grammar*="gfm"] .syntax--markup.syntax--strike::after {
+  content: "";
+  position: absolute;
+  top: calc(54%);
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: rgba(238, 255, 255, 0.5);
+}
+[data-grammar*="gfm"] .syntax--table .syntax--border {
+  color: rgba(238, 255, 255, 0.5);
+}
+[data-grammar*="gfm"] .syntax--markup.syntax--heading {
+  color: #82AAFF;
+}
+[data-grammar*="gfm"] .syntax--punctuation.syntax--definition.syntax--begin,
+[data-grammar*="gfm"] .syntax--punctuation.syntax--definition.syntax--end {
+  color: #82AAFF;
+}
+[data-grammar*="gfm"] .syntax--punctuation.syntax--definition.syntax--begin + span:not(.syntax--function.syntax--parameter) {
+  color: #9cbbff;
+}
+.syntax--html .syntax--meta.syntax--tag.syntax--doctype,
+.syntax--jsx .syntax--meta.syntax--tag.syntax--doctype {
+  color: #C792EA;
+}
+.syntax--html .syntax--punctuation.syntax--tag,
+.syntax--jsx .syntax--punctuation.syntax--tag {
+  color: #89DDF3;
+}
+.syntax--js .syntax--constant {
+  color: #EEFFFF;
+}
+.syntax--js .syntax--support.syntax--variable.syntax--property {
+  color: #EEFFFF;
+}
+.syntax--js .syntax--support.syntax--variable.syntax--property.syntax--dom {
+  color: #82AAFF;
+}
+.syntax--js .syntax--entity.syntax--name.syntax--type {
+  color: #FFCB6B;
+}
+.syntax--js .syntax--variable.syntax--property {
+  color: #82AAFF;
+}
+.syntax--js .syntax--variable.syntax--other.syntax--object {
+  color: #EEFFFF;
+}
+.syntax--js .syntax--variable.syntax--other.syntax--object.syntax--property {
+  color: #82AAFF;
+}
+.syntax--js .syntax--string.syntax--quoted.syntax--template .syntax--other.syntax--object.syntax--property {
+  color: #C3E88D;
+}
+.syntax--js .syntax--constant.syntax--numeric {
+  color: #F78C6A;
+}
+.syntax--js .syntax--constant.syntax--boolean {
+  color: #F07178;
+}
+.syntax--js .syntax--punctuation.syntax--begin,
+.syntax--js .syntax--punctuation.syntax--end,
+.syntax--js .syntax--delimiter.syntax--object.syntax--comma,
+.syntax--js .syntax--brace.syntax--curly {
+  color: #89DDF3;
+}
+.syntax--js .syntax--export .syntax--variable.syntax--default {
+  color: #C792EA;
+}
+.syntax--json .syntax--meta.syntax--array.syntax--structure .syntax--string.syntax--quoted.syntax--double {
+  color: #C3E88D;
+}
+.syntax--json .syntax--meta.syntax--array.syntax--structure .syntax--string.syntax--quoted.syntax--double > * {
+  color: currentColor;
+}
+.syntax--json .syntax--meta.syntax--array.syntax--structure .syntax--string.syntax--quoted.syntax--double > *.syntax--punctuation.syntax--begin,
+.syntax--json .syntax--meta.syntax--array.syntax--structure .syntax--string.syntax--quoted.syntax--double > *.syntax--punctuation.syntax--end {
+  color: #89DDF3;
+}
+.syntax--json .syntax--meta .syntax--punctuation.syntax--separator.syntax--key-value + .syntax--string.syntax--quoted {
+  color: #C3E88D;
+}
+.syntax--json .syntax--meta .syntax--punctuation.syntax--separator.syntax--key-value + .syntax--string.syntax--quoted * {
+  color: currentColor;
+}
+.syntax--json .syntax--meta .syntax--punctuation.syntax--separator.syntax--key-value + .syntax--string.syntax--quoted *.syntax--punctuation.syntax--begin,
+.syntax--json .syntax--meta .syntax--punctuation.syntax--separator.syntax--key-value + .syntax--string.syntax--quoted *.syntax--punctuation.syntax--end {
+  color: #89DDF3;
+}
+.syntax--json .syntax--meta.syntax--structure.syntax--dictionary .syntax--string.syntax--quoted {
+  color: #C792EA;
+}
+.syntax--json .syntax--meta.syntax--structure.syntax--dictionary .syntax--string.syntax--quoted .syntax--punctuation.syntax--string {
+  color: currentColor;
+}
+.syntax--php .syntax--keyword.syntax--operator.syntax--assignment {
+  color: #C792EA;
+}
+.syntax--php .syntax--meta.syntax--object {
+  color: #82AAFF;
+}
+.syntax--php .syntax--meta.syntax--arguments {
+  color: #C792EA;
+}
+.syntax--python .syntax--meta.syntax--function-call {
+  color: #82AAFF;
+}
+.syntax--python .syntax--meta.syntax--function-call .syntax--punctuation {
+  color: #89DDF3;
+}
+.syntax--python .syntax--meta.syntax--function-call .syntax--arguments {
+  color: #7986CB;
+}
+.syntax--python .syntax--meta.syntax--function-call .syntax--arguments.syntax--punctuation {
+  color: #89DDF3;
+}
+.syntax--python .syntax--variable.syntax--self {
+  color: #FF5370;
+}
+.syntax--python .syntax--meta .syntax--punctuation.syntax--inheritance,
+.syntax--python .syntax--meta .syntax--punctuation.syntax--section {
+  color: #89DDF3;
+}
+.syntax--python .syntax--variable.syntax--parameter {
+  color: #89DDF3;
+}
+.syntax--python .syntax--keyword.syntax--operator {
+  color: #C792EA;
+}
+.syntax--ruby .syntax--punctuation.syntax--separator {
+  color: #89DDF3;
+}
+.syntax--ruby .syntax--variable.syntax--block {
+  color: #F07178;
+}
+.syntax--ruby .syntax--variable.syntax--instance {
+  color: #F07178;
+}
+.syntax--ruby .syntax--variable.syntax--instance .syntax--punctuation {
+  color: currentColor;
+}
+</style>
+  </head>
+  <body class='markdown-preview' data-use-github-style><h1 id="tcr-audit-report-by-consensys-diligence">TCR Audit Report by ConsenSys Diligence</h1>
+
+
+<ul>
+<li><a href="#1---introduction">1 - Introduction</a><ul>
+<li><a href="#11---review-goals">1.1 - Review Goals</a></li>
+<li><a href="#12---summary">1.2 - Summary</a></li>
+<li><a href="#13---materials-included-in-audit">1.3 - Materials Included in Audit</a></li>
+</ul>
+</li>
+<li><a href="#2---general-findings">2 - General Findings</a></li>
+<li><a href="#3---specific-findings">3 - Specific Findings</a></li>
+<li><a href="#4---third-party-findings">4 - Third Party Findings</a></li>
+<li><a href="#appendix-1---audit-participants">Appendix 1 - Audit Participants</a></li>
+<li><a href="#appendix-2---terminology">Appendix 2 - Terminology</a><ul>
+<li><a href="#a21---coverage">A.2.1 - Coverage</a></li>
+<li><a href="#a22---severity">A.2.1 - Severity</a>
+
+
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-introduction">1 - Introduction</h2>
+<h3 id="1-1-review-goals">1.1 - Review Goals</h3>
+<p>The focus of this review was to ensure the following properties:</p>
+<p><strong>Security</strong>:
+identifying security related issues within each
+contract and within the system of contracts.</p>
+<p><strong>Sound Architecture</strong>:
+evaluation of the architecture of this system through the lens of established smart contract best practices and general software best practices.</p>
+<p><strong>Code Correctness and Quality</strong>:
+a full review of the contract source code.  The primary areas of focus include:</p>
+<ul>
+<li>Correctness (does it do was it is supposed to do)</li>
+<li>Readability (How easily it can be read and understood)</li>
+<li>Sections of code with high complexity</li>
+<li>Improving scalability</li>
+<li>Quantity and quality of test coverage</li>
+</ul>
+<h3 id="1-2-summary">1.2 - Summary</h3>
+<h4 id="general-overview-of-contract-system">General Overview of Contract System</h4>
+<p>A token-curated registry is composed of a registry of entries, editable settings for the registry, and a voting system to approve or reject new registry entries and new settings.</p>
+<p>Applicants submit their data and a required deposit to the <code style="font-family: &quot;Fira Code&quot;;">Registry</code> contract. The application remains in the apply stage to allow for challenges before it is included in the registry. A challenger must also transfer the required deposit to contract to initiate a challenge. <code style="font-family: &quot;Fira Code&quot;;">Registry</code> uses a <code style="font-family: &quot;Fira Code&quot;;">PLCRVoting</code> contract to hold a token-weighted vote on the registry entry. The winner between the applicant and the challenger is rewarded with part of the loser's deposit. The rest of the loser's deposit is split among the tokens that voted on the winning side. After an entry is accepted into the registry, it can be challenged at any time.</p>
+<p>'Parameterizer' holds the settings for itself and the registry. Changes to these settings use the same <code style="font-family: &quot;Fira Code&quot;;">PLCRVoting</code> contract and the same challenge mechanism as <code style="font-family: &quot;Fira Code&quot;;">Registry</code>.</p>
+<p><code style="font-family: &quot;Fira Code&quot;;">PLCRVoting</code>'s complexity comes from the need to share tokens between polls using partial-lock commit-reveal voting. A <code style="font-family: &quot;Fira Code&quot;;">DLL</code> (doubly-linked list) contract stores the IDs of each user's active polls sorted by the number of tokens that were used to vote. When a vote is revealed, its entry is removed from the list. <code style="font-family: &quot;Fira Code&quot;;">PLCRVoting</code> prevents users from withdrawing tokens that would lower their balance below the number used in the active poll that used the most tokens, which is at the end of the list.</p>
+<h4 id="overview-of-findings">Overview of Findings</h4>
+<p>The contract system behaves as intended in rational scenarios, but the reliance on sane user input makes it possible for malicious proposals to lock up tokens or distribute them to unintended recipients. This requires those proposals to survive a challenge, which is difficult, but possible. In addition, users who interact with the contracts in unexpected ways can lock up their tokens.</p>
+<h3 id="1-3-materials-included-in-audit">1.3 - Materials Included in Audit</h3>
+<h4 id="documentation">Documentation</h4>
+<p>Token-curated registries are documented in a series of blog posts, which were used as the reference documentation for this audit.</p>
+<ul>
+<li><a href="https://medium.com/@ilovebagels/token-curated-registries-1-0-61a232f8dac7">Token-Curated Registries 1.0</a></li>
+<li><a href="https://medium.com/@AdChain/a-walkthrough-of-plcr-voting-in-solidity-92420bd5b87c">Dev Diary I: A Walkthrough of PLCR Voting in Solidity</a></li>
+<li><a href="https://medium.com/@AdChain/a-walkthrough-of-the-adchain-registry-tcr-in-solidity-72addcde17fb">Dev Diary II: A Walkthrough of the adChain Registry TCR in Solidity</a></li>
+</ul>
+<h4 id="dynamic-tests">Dynamic Tests</h4>
+<p>The <code style="font-family: &quot;Fira Code&quot;;">tcr</code> codebase contains a comprehensive test suite, but our code coverage tool, <code style="font-family: &quot;Fira Code&quot;;">solidity-coverage</code>, throws an error while running the contract migrations before any tests can be executed. The tests execute successfully using the normal test runner.</p>
+<h4 id="source-code">Source Code</h4>
+<p>The audit covered the codebase as of commit <a href="https://github.com/skmgoldin/tcr/tree/b206561249ed1779f10aa4ba390ffee676148134"><code style="font-family: &quot;Fira Code&quot;;">b2065612</code></a>. The second phase review after our recommendations covered the codebase as of commit <a href="https://github.com/skmgoldin/tcr/tree/db40cd3c1719e4afc1299867df7acc3244ced3e0"><code style="font-family: &quot;Fira Code&quot;;">db40cd3c</code></a>.</p>
+<p>The codebase pulls in ethpm packages <a href="https://github.com/skmgoldin/sol-sdll"><code style="font-family: &quot;Fira Code&quot;;">dll</code></a> and <a href="https://github.com/skmgoldin/sol-attrstore"><code style="font-family: &quot;Fira Code&quot;;">attrstore</code></a> via Truffle. <code style="font-family: &quot;Fira Code&quot;;">PLCRVoting</code> is copied into the codebase from its <a href="https://github.com/ConsenSys/PLCRVoting">original source</a>.</p>
+<h2 id="2-general-findings">2 - General Findings</h2>
+<h3 id="2-1-state-changes-occur-after-token-contract-calls">2.1 - State changes occur after token contract calls</h3>
+<p><em>Severity: Medium</em></p>
+<p>Throughout the contract system, calls are made to the token contract followed by state changes in the contracts themselves. Token contracts can perform reentrancy attacks to take advantage of this.</p>
+<p><strong>Recommendation</strong></p>
+<p>Move token contract calls after all state changes in each function. Alternatively, document that TCRs must use trusted token contracts that cannot call other contracts.</p>
+<p><a href="https://github.com/skmgoldin/tcr/issues/17">https://github.com/skmgoldin/tcr/issues/17</a></p>
+<p><strong>Resolution</strong></p>
+<p>This recommendation was implemented in <code style="font-family: &quot;Fira Code&quot;;">PLCRVoting</code> commit <a href="https://github.com/ConsenSys/PLCRVoting/commit/abba14c11e2bc022dc7ea03c0c98e3020071dd34"><code style="font-family: &quot;Fira Code&quot;;">abba14c1</code></a> and <code style="font-family: &quot;Fira Code&quot;;">tcr</code> commit <a href="https://github.com/skmgoldin/tcr/commit/8f4823f3336d4505506d918aa3010d7736160c5b"><code style="font-family: &quot;Fira Code&quot;;">8f4823f3</code></a>.</p>
+<h2 id="3-specific-findings">3 - Specific Findings</h2>
+<h3 id="3-1-re-inserting-the-last-node-in-the-list-creates-a-cycle">3.1 - Re-inserting the last node in the list creates a cycle</h3>
+<p><em>Severity: Critical</em></p>
+<p>The changes in <a href="https://github.com/skmgoldin/sol-dll/commit/52d97ca2d43fe3d7125f1db241a0a5f9911452fd"><code style="font-family: &quot;Fira Code&quot;;">52d97ca2</code></a> address most of the inconsistent list states from re-inserting an existing node, but one remains: if the last node is reinserted with itself as the previous node, the node sets its next and previous pointers to itself, and the actual previous item in the list isn't updated to point to the right place.</p>
+<p><strong>Recommendation</strong></p>
+<pre class="editor-colors lang-diff"><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>diff&nbsp;--git&nbsp;a/contracts/DLL.sol&nbsp;b/contracts/DLL.sol</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>index&nbsp;18d4965..5226132&nbsp;100644</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>---&nbsp;a/contracts/DLL.sol</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>+++&nbsp;b/contracts/DLL.sol</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>@@&nbsp;-52,11&nbsp;+52,13&nbsp;@@&nbsp;library&nbsp;DLL&nbsp;{</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;*/</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;function&nbsp;insert(Data&nbsp;storage&nbsp;self,&nbsp;uint&nbsp;_prev,&nbsp;uint&nbsp;_curr,&nbsp;uint&nbsp;_next)&nbsp;public&nbsp;{</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;require(_curr&nbsp;!=&nbsp;NULL_NODE_ID);</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>-&nbsp;&nbsp;&nbsp;&nbsp;require(_prev&nbsp;==&nbsp;NULL_NODE_ID&nbsp;||&nbsp;contains(self,&nbsp;_prev));</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>-</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;remove(self,&nbsp;_curr);</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>+&nbsp;&nbsp;&nbsp;&nbsp;require(_prev&nbsp;==&nbsp;NULL_NODE_ID&nbsp;||&nbsp;contains(self,&nbsp;_prev));</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>+&nbsp;&nbsp;&nbsp;&nbsp;require(_next&nbsp;==&nbsp;NULL_NODE_ID&nbsp;||&nbsp;contains(self,&nbsp;_next));</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>+</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;require(getNext(self,&nbsp;_prev)&nbsp;==&nbsp;_next);</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>+&nbsp;&nbsp;&nbsp;&nbsp;require(getPrev(self,&nbsp;_next)&nbsp;==&nbsp;_prev);</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.dll[_curr].prev&nbsp;=&nbsp;_prev;</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.dll[_curr].next&nbsp;=&nbsp;_next;</span></span></div></pre>
+<p>Remove the current item from the list as early as possible in the function, right after the null node check. Since <code style="font-family: &quot;Fira Code&quot;;">_prev</code> will no longer be in the list, the <code style="font-family: &quot;Fira Code&quot;;">contains()</code> check will fail and the cycle won't be created. Make it harder to exploit lists that somehow get into a broken state by checking the invariants for <code style="font-family: &quot;Fira Code&quot;;">_next</code>, even though we expect them to always be consistent with the checks for <code style="font-family: &quot;Fira Code&quot;;">_prev</code>. Add a README that describes <code style="font-family: &quot;Fira Code&quot;;">DLL</code> as a list of unique elements.</p>
+<p><a href="https://github.com/skmgoldin/sol-dll/issues/2">https://github.com/skmgoldin/sol-dll/issues/2</a></p>
+<p><strong>Resolution</strong></p>
+<p>A failing test case for this issue was added in <a href="https://github.com/skmgoldin/sol-dll/commit/3b5d3f5600106e06c0b7036a1fd5f123ad939fb0"><code style="font-family: &quot;Fira Code&quot;;">3b5d3f56</code></a>, and the recommended fix was made in <a href="https://github.com/skmgoldin/sol-dll/commit/91cb2448432f8e5a98f14965f24d90e5bcf65ec2"><code style="font-family: &quot;Fira Code&quot;;">91cb2448</code></a>.</p>
+<p>The code from that commit was published as version 1.0.4 of the <code style="font-family: &quot;Fira Code&quot;;">dll</code> package in ethpm. The <code style="font-family: &quot;Fira Code&quot;;">tcr</code> repository was updated to point to that version in <a href="https://github.com/skmgoldin/tcr/commit/924925ffb9b79b517e560ea706941d2e33eaa729"><code style="font-family: &quot;Fira Code&quot;;">924925ff</code></a>.</p>
+<h3 id="3-2-getcommithash-is-an-unreliable-proof-that-_prevpollid-exists">3.2 - getCommitHash is an unreliable proof that _prevPollID exists</h3>
+<p><em>Severity: Major</em></p>
+<p>In <code style="font-family: &quot;Fira Code&quot;;">commitVote</code>, we check to ensure that the insert position (<code style="font-family: &quot;Fira Code&quot;;">_prevPollID</code>) actually exists by checking <code style="font-family: &quot;Fira Code&quot;;">getCommitHash(msg.sender, _prevPollID) != 0</code>. If a user sets their commit hash for that poll to zero, that check will fail even though it is a valid insertion position.</p>
+<p>In <a href="https://github.com/ConsenSys/PLCRVoting/commit/b2ae12779ba5344b723f42d821e6b9cede3ee088">changes that have been made since the code was frozen for the audit</a>, <code style="font-family: &quot;Fira Code&quot;;">hasBeenRevealed</code> uses <code style="font-family: &quot;Fira Code&quot;;">getCommitHash</code> to throw if the hash is zero, which would prevent both <code style="font-family: &quot;Fira Code&quot;;">revealVote</code> and <code style="font-family: &quot;Fira Code&quot;;">rescueTokens</code> from succeeding if the user submitted a commit hash of zero, which would lock their tokens forever.</p>
+<p><strong>Recommendation</strong></p>
+<p>To distinguish polls that were never voted on from polls that were voted on and revealed, maintain attributes that are not controlled by user input. For instance, you could have <code style="font-family: &quot;Fira Code&quot;;">committed</code> and <code style="font-family: &quot;Fira Code&quot;;">revealed</code> attributes that are set to true when those events happen. Rather than use an attribute for <code style="font-family: &quot;Fira Code&quot;;">unlocked</code>, using <code style="font-family: &quot;Fira Code&quot;;">DLL.contains(pollID)</code> as the locked state ensures that tokens can always be rescued if they're in the list. This gives a few possible states:</p>
+<ul>
+<li><strong>all false</strong>: never voted</li>
+<li><strong>committed, but not revealed or unlocked</strong>: waiting for a reveal or a rescue</li>
+<li><strong>committed, revealed and unlocked</strong>: user revealed on time</li>
+<li><strong>committed, not revealed, but unlocked</strong>: user rescued tokens</li>
+</ul>
+<p><code style="font-family: &quot;Fira Code&quot;;">commitVote</code> needs to ensure that <code style="font-family: &quot;Fira Code&quot;;">_prevPollID</code> is the ID of a locked poll, so it would <code style="font-family: &quot;Fira Code&quot;;">require(DLL.contains(__prevPollID)</code>, then set <code style="font-family: &quot;Fira Code&quot;;">committed</code> to true before returning. Here's what would happen to each <code style="font-family: &quot;Fira Code&quot;;">hasBeenRevealed</code> call:</p>
+<ul>
+<li><code style="font-family: &quot;Fira Code&quot;;">rescueTokens</code>: if <code style="font-family: &quot;Fira Code&quot;;">DLL.contains(_pollID)</code> and <code style="font-family: &quot;Fira Code&quot;;">isExpired(pollMap[_pollID].revealEndDate)</code>, remove the poll ID from the list</li>
+<li><code style="font-family: &quot;Fira Code&quot;;">revealVote</code>: if <code style="font-family: &quot;Fira Code&quot;;">committed</code> is true and <code style="font-family: &quot;Fira Code&quot;;">revealed</code> is false, reveal the vote and set <code style="font-family: &quot;Fira Code&quot;;">revealed</code> to true</li>
+<li><code style="font-family: &quot;Fira Code&quot;;">getNumPassingTokens</code>: if <code style="font-family: &quot;Fira Code&quot;;">revealed</code> is true, get the number of tokens they used to vote</li>
+</ul>
+<p>Attempting to generalize <code style="font-family: &quot;Fira Code&quot;;">hasBeenRevealed</code> risks locking up tokens. Replacing it with explicit conditions for each case is safer.</p>
+<p><a href="https://github.com/ConsenSys/PLCRVoting/issues/22">https://github.com/ConsenSys/PLCRVoting/issues/22</a></p>
+<p><strong>Resolution</strong></p>
+<p><code style="font-family: &quot;Fira Code&quot;;">PLCRVoting</code> commit <a href="https://github.com/ConsenSys/PLCRVoting/commit/1fec53b876156d8f219d09c5bc871e83c14b4fee"><code style="font-family: &quot;Fira Code&quot;;">1fec53b8</code></a> implements this recommendation with mappings for <code style="font-family: &quot;Fira Code&quot;;">didCommit</code> and <code style="font-family: &quot;Fira Code&quot;;">didReveal</code>. These changes were added to <code style="font-family: &quot;Fira Code&quot;;">tcr</code> in commit <a href="https://github.com/skmgoldin/tcr/commit/08ae65af0698fa77b6666c17275769a51f2a8a17"><code style="font-family: &quot;Fira Code&quot;;">08ae65af</code></a>.</p>
+<h3 id="3-3-integer-overflow-in-startpoll">3.3 - Integer overflow in startPoll</h3>
+<p><em>Severity: Major</em></p>
+<p><code style="font-family: &quot;Fira Code&quot;;">commitEndDate: block.timestamp + _commitDuration</code> and <code style="font-family: &quot;Fira Code&quot;;">revealEndDate: block.timestamp + _commitDuration + _revealDuration</code> can overflow. This can result in polls that will accept votes, but never unlock tokens in the current code.</p>
+<p><strong>Recommendation</strong></p>
+<p>Use <a href="https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/math/SafeMath.sol">SafeMath</a> for arithmetic.</p>
+<p><a href="https://github.com/ConsenSys/PLCRVoting/issues/25">https://github.com/ConsenSys/PLCRVoting/issues/25</a></p>
+<p><strong>Resolution</strong></p>
+<p><code style="font-family: &quot;Fira Code&quot;;">PLCRVoting</code> commit <a href="https://github.com/ConsenSys/PLCRVoting/commit/26579ec7f645f868cdb4c7de4c764808882a5d3a"><code style="font-family: &quot;Fira Code&quot;;">26579ec7</code></a> uses <code style="font-family: &quot;Fira Code&quot;;">SafeMath</code> for arithmetic in <code style="font-family: &quot;Fira Code&quot;;">startPoll</code>. The <code style="font-family: &quot;Fira Code&quot;;">tcr</code> repository was updated with this change in commit <a href="https://github.com/skmgoldin/tcr/commit/845b0498ecba0644c10213db936fed29df6c703c"><code style="font-family: &quot;Fira Code&quot;;">845b0498</code></a>.</p>
+<h3 id="3-4-pollexists-is-misleading-and-incomplete">3.4 - pollExists is misleading and incomplete</h3>
+<p><em>Severity: Major</em></p>
+<p><code style="font-family: &quot;Fira Code&quot;;">pollExists</code> doesn't check if a poll exists. It attempts to check if a poll's stage times are reasonable, but misses polls that allow users to commit to a vote later than they can reveal their vote, which would lock their tokens permanently.</p>
+<p><strong>Recommendation</strong></p>
+<p>In <code style="font-family: &quot;Fira Code&quot;;">startPoll</code>, require reasonable stage times. Both must be greater than <code style="font-family: &quot;Fira Code&quot;;">block.timestamp</code>, and <code style="font-family: &quot;Fira Code&quot;;">commitEndDate</code> must be less than <code style="font-family: &quot;Fira Code&quot;;">revealEndDate</code>. Remove sanity checks from <code style="font-family: &quot;Fira Code&quot;;">pollExists</code> and just require that <code style="font-family: &quot;Fira Code&quot;;">_pollID &lt;= pollNonce</code> so users can't vote on polls that haven't been started yet.</p>
+<p><a href="https://github.com/ConsenSys/PLCRVoting/issues/26">https://github.com/ConsenSys/PLCRVoting/issues/26</a></p>
+<p><strong>Resolution</strong></p>
+<p>As described above, <code style="font-family: &quot;Fira Code&quot;;">PLCRVoting</code> commit <a href="https://github.com/ConsenSys/PLCRVoting/commit/26579ec7f645f868cdb4c7de4c764808882a5d3a"><code style="font-family: &quot;Fira Code&quot;;">26579ec7</code></a> replaces overflow-prone arithmetic with calls to <code style="font-family: &quot;Fira Code&quot;;">SafeMath</code>, which ensures that the stage times never overflow and produce unexpected values. <code style="font-family: &quot;Fira Code&quot;;">PLCRVoting</code> commit <a href="https://github.com/ConsenSys/PLCRVoting/commit/a069730fcd818c249574a38f922e871c8011fc4f"><code style="font-family: &quot;Fira Code&quot;;">a069730f</code></a> implements the recommended changes to <code style="font-family: &quot;Fira Code&quot;;">pollExists</code> with an additional check that the poll ID in question is not zero, which is an invalid poll ID. The <code style="font-family: &quot;Fira Code&quot;;">tcr</code> repository was updated with these changes in commits <a href="https://github.com/skmgoldin/tcr/commit/b0c1374e066e79a039870aa8099dc5872e2ccb5f"><code style="font-family: &quot;Fira Code&quot;;">b0c1374e</code></a> and <a href="https://github.com/skmgoldin/tcr/commit/845b0498ecba0644c10213db936fed29df6c703c"><code style="font-family: &quot;Fira Code&quot;;">845b0498</code></a>.</p>
+<h3 id="3-5-parameterizer-proposal-deposits-and-challenge-deposits-can-differ">3.5 - Parameterizer proposal deposits and challenge deposits can differ</h3>
+<p><em>Severity: Major</em></p>
+<p>If <code style="font-family: &quot;Fira Code&quot;;">pMinDeposit</code> is changed after a proposal has been created, tokens will not be distributed properly.</p>
+<p>If <code style="font-family: &quot;Fira Code&quot;;">pMinDeposit</code> is increased, <code style="font-family: &quot;Fira Code&quot;;">challenge.stake</code> and <code style="font-family: &quot;Fira Code&quot;;">challenge.rewardPool</code> will be based on a larger value than what the proposer deposited. Winning challengers will attempt to withdraw <code style="font-family: &quot;Fira Code&quot;;">(2 * challenges[_challengeID].stake) - challenges[_challengeID].rewardPool</code>, which will fail if the deposit has been increased enough to make the reward pool larger than the proposer's deposit. Even when it succeeds, the reward pool will be larger than the balance that remains the contract, so some voters won't get rewarded.</p>
+<p>If <code style="font-family: &quot;Fira Code&quot;;">pMinDeposit</code> is decreased, <code style="font-family: &quot;Fira Code&quot;;">challenge.stake</code> and <code style="font-family: &quot;Fira Code&quot;;">challenge.rewardPool</code> will be based on a smaller value than what the proposer deposited. The winner will withdraw <code style="font-family: &quot;Fira Code&quot;;">(2 * challenges[_challengeID].stake) - challenges[_challengeID].rewardPool</code>, which will leave some tokens allocated neither to the winner nor the winning voters. The tokens will remain stuck in the contract.</p>
+<p><strong>Recommendation</strong></p>
+<p>In <code style="font-family: &quot;Fira Code&quot;;">challengeReparameterization</code>, don't reference <code style="font-family: &quot;Fira Code&quot;;">pMinDeposit</code>. Reference <code style="font-family: &quot;Fira Code&quot;;">proposal.deposit</code> so challenges are always consistent with their proposals.</p>
+<p><a href="https://github.com/skmgoldin/tcr/issues/15">https://github.com/skmgoldin/tcr/issues/15</a></p>
+<p><strong>Resolution</strong></p>
+<p>This recommendation was implemented in <code style="font-family: &quot;Fira Code&quot;;">tcr</code> commit <a href="https://github.com/skmgoldin/tcr/commit/1e71a652affcfd55d26d0461cd140c033c6939f9"><code style="font-family: &quot;Fira Code&quot;;">1e71a652</code></a>.</p>
+<h3 id="3-6-integer-underflow-in-challengereparameterization">3.6 - Integer underflow in challengeReparameterization</h3>
+<p><em>Severity: Major</em></p>
+<p><code style="font-family: &quot;Fira Code&quot;;">100 - get("pDispensationPct")</code> can underflow, which would allow tokens to be drained from the contract.</p>
+<p><strong>Recommendation</strong></p>
+<p>Use <a href="https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/math/SafeMath.sol">SafeMath</a> for arithmetic, and assert that these calculations succeed in processProposal so proposals can't get the contract in a state where the arithmetic for new challenges will revert every transaction.</p>
+<p><a href="https://github.com/skmgoldin/tcr/issues/19">https://github.com/skmgoldin/tcr/issues/19</a></p>
+<p><strong>Resolution</strong></p>
+<p>This recommendation was implemented in <code style="font-family: &quot;Fira Code&quot;;">tcr</code> commit <a href="https://github.com/skmgoldin/tcr/commit/a9f0d97ddfa6a4fafeed9c087086994efd1fe4dc"><code style="font-family: &quot;Fira Code&quot;;">a9f0d97d</code></a>, along with a requirement for new proposals that the value for <code style="font-family: &quot;Fira Code&quot;;">pDispensationPct</code> and <code style="font-family: &quot;Fira Code&quot;;">dispensationPct</code> must be less than or equal to 100.</p>
+<h3 id="3-7-integer-underflow-in-withdrawvotingrights">3.7 - Integer underflow in withdrawVotingRights</h3>
+<p><em>Severity: Medium</em></p>
+<p><code style="font-family: &quot;Fira Code&quot;;">voteTokenBalance[msg.sender] - getLockedTokens(msg.sender)</code> can underflow. This shouldn't underflow under normal circumstances, but detecting the underflow makes it harder to exploit abnormal circumstances.</p>
+<p><strong>Recommendation</strong></p>
+<p>Use <a href="https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/math/SafeMath.sol">SafeMath</a> for arithmetic.</p>
+<p><a href="https://github.com/ConsenSys/PLCRVoting/issues/21">https://github.com/ConsenSys/PLCRVoting/issues/21</a></p>
+<p><strong>Resolution</strong></p>
+<p>This recommendation was implemented in <code style="font-family: &quot;Fira Code&quot;;">PLCRVoting</code> commit <a href="https://github.com/ConsenSys/PLCRVoting/commit/c8df984d5d80593b72363cd6ee0f1f0652bc5959"><code style="font-family: &quot;Fira Code&quot;;">c8df984d</code></a>, and in <code style="font-family: &quot;Fira Code&quot;;">tcr</code> commit <a href="https://github.com/skmgoldin/tcr/commit/c8fa488944db43065ed4d904a1a654f0760c578f"><code style="font-family: &quot;Fira Code&quot;;">c8fa4889</code></a>.</p>
+<h3 id="3-8-integer-overflows-in-proposereparameterization">3.8 - Integer overflows in proposeReparameterization</h3>
+<p><em>Severity: Medium</em></p>
+<p><code style="font-family: &quot;Fira Code&quot;;">now + get("pApplyStageLen")</code> and <code style="font-family: &quot;Fira Code&quot;;">now + get("pApplyStageLen") + get("pCommitStageLen") + get("pRevealStageLen") + PROCESSBY</code> can overflow.</p>
+<p><strong>Recommendation</strong></p>
+<p>Use <a href="https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/math/SafeMath.sol">SafeMath</a> for arithmetic, and assert that these calculations succeed in <code style="font-family: &quot;Fira Code&quot;;">processProposal</code> so proposals can't get the contract in a state where the arithmetic for new proposals will revert every transaction.</p>
+<p><a href="https://github.com/skmgoldin/tcr/issues/18">https://github.com/skmgoldin/tcr/issues/18</a></p>
+<p><strong>Resolution</strong></p>
+<p>This recommendation was implemented in <code style="font-family: &quot;Fira Code&quot;;">tcr</code> commit <a href="https://github.com/skmgoldin/tcr/commit/81c3274b3c908e2034d243f41e3e89783c67dd1b"><code style="font-family: &quot;Fira Code&quot;;">81c3274b</code></a>.</p>
+<h3 id="3-9-integer-overflow-in-registry-apply">3.9 - Integer overflow in Registry.apply</h3>
+<p><em>Severity: Medium</em></p>
+<p><code style="font-family: &quot;Fira Code&quot;;">listingHash.applicationExpiry = block.timestamp + parameterizer.get("applyStageLen")</code> can overflow.</p>
+<p><strong>Recommendation</strong></p>
+<p>Use <a href="https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/math/SafeMath.sol">SafeMath</a> for arithmetic. If the token holders set <code style="font-family: &quot;Fira Code&quot;;">applyStageLen</code> too high, all new applications will revert until they pass a proposal to change the setting.</p>
+<p><a href="https://github.com/skmgoldin/tcr/issues/27">https://github.com/skmgoldin/tcr/issues/27</a></p>
+<p><strong>Resolution</strong></p>
+<p>This recommendation was implemented in <code style="font-family: &quot;Fira Code&quot;;">tcr</code> commit <a href="https://github.com/skmgoldin/tcr/commit/9d8b7af5fef7516dd6f84dfdce4f05109cae4a7e"><code style="font-family: &quot;Fira Code&quot;;">9d8b7af5</code></a>.</p>
+<h3 id="3-10-use-eip20interface-instead-of-eip20">3.10 - Use EIP20Interface instead of EIP20</h3>
+<p><em>Severity: Minor</em></p>
+<p><code style="font-family: &quot;Fira Code&quot;;">PLCRVoting</code> and <code style="font-family: &quot;Fira Code&quot;;">Registry</code> should work with any ERC20 token, but they refer to a specific implementation of an ERC20 token. This doesn't have any effect on compatibility, but could be misleading.</p>
+<p><strong>Recommendation</strong></p>
+<p>Use EIP20Interface instead of EIP20.</p>
+<ul>
+<li><a href="https://github.com/ConsenSys/PLCRVoting/issues/24">https://github.com/ConsenSys/PLCRVoting/issues/24</a></li>
+<li><a href="https://github.com/skmgoldin/tcr/issues/25">https://github.com/skmgoldin/tcr/issues/25</a></li>
+</ul>
+<p><strong>Resolution</strong></p>
+<p>This recommendation was implemented in <code style="font-family: &quot;Fira Code&quot;;">PLCRVoting</code> commit <a href="https://github.com/ConsenSys/PLCRVoting/commit/079c75d08940dfb453cf5f46c7f57477a2487571"><code style="font-family: &quot;Fira Code&quot;;">079c75d0</code></a> and <code style="font-family: &quot;Fira Code&quot;;">tcr</code> commit <a href="https://github.com/skmgoldin/tcr/commit/d735858c81297d597d335779e50a5f2baa729cce"><code style="font-family: &quot;Fira Code&quot;;">d735858c</code></a>.</p>
+<h3 id="3-11-challenges-with-zero-votes-will-succeed">3.11 - Challenges with zero votes will succeed</h3>
+<p><em>Severity: Minor</em></p>
+<p>PLCRVoting determines the winner with <code style="font-family: &quot;Fira Code&quot;;">(100 * poll.votesFor) &gt; (poll.voteQuorum * (poll.votesFor + poll.votesAgainst))</code>. As a result, polls resolve as failing when they expire with no votes. This is probably the right behavior, but it's surprising.</p>
+<p>The existing comments about this behavior are inconsistent.</p>
+<p>Parameterizer.sol: <code style="font-family: &quot;Fira Code&quot;;">// Edge case, nobody voted, give all tokens to the winner.</code></p>
+<p>Registry.sol: <code style="font-family: &quot;Fira Code&quot;;">// Edge case, nobody voted, give all tokens to the challenger.</code></p>
+<p><strong>Recommendation</strong></p>
+<p>Near the calls to <code style="font-family: &quot;Fira Code&quot;;">voting.isPassed</code>, document that either the challenge didn't get enough votes, or nobody voted at all.</p>
+<p><a href="https://github.com/skmgoldin/tcr/issues/16">https://github.com/skmgoldin/tcr/issues/16</a></p>
+<p><strong>Resolution</strong></p>
+<p>The comments in <code style="font-family: &quot;Fira Code&quot;;">challengeWinnerReward</code> and <code style="font-family: &quot;Fira Code&quot;;">resolveChallenge</code> for both <code style="font-family: &quot;Fira Code&quot;;">Parameterizer.sol</code> and <code style="font-family: &quot;Fira Code&quot;;">Registry.sol</code> were updated to be consistent in <code style="font-family: &quot;Fira Code&quot;;">tcr</code> commit <a href="https://github.com/skmgoldin/tcr/commit/93d270938cacf33d70c45919f1985cc65a34757f"><code style="font-family: &quot;Fira Code&quot;;">93d27093</code></a>.</p>
+<h4 id="3-12-an-unchallenged-application-cannot-be-cancelled">3.12 - An unchallenged application cannot be cancelled</h4>
+<p><em>Severity: Minor</em></p>
+<p>Whitelisted applicants can exit the registry when they discover new information that threatens their deposit. New applicants cannot do so because <code style="font-family: &quot;Fira Code&quot;;">exit</code> calls <code style="font-family: &quot;Fira Code&quot;;">require(isWhitelisted(_listingHash))</code>. Even without an active challenge, a new applicant with new information cannot protect themselves from a challenge the way whitelisted applicants can.</p>
+<p><strong>Recommendation</strong></p>
+<p>If this is desired behavior, keep it. Just pointing out the discrepancy.</p>
+<p><a href="https://github.com/skmgoldin/tcr/issues/28">https://github.com/skmgoldin/tcr/issues/28</a></p>
+<p><strong>Resolution</strong></p>
+<p>No changes. This behavior will be documented.</p>
+<h2 id="4-third-party-findings">4 - Third Party Findings</h2>
+<p>After the initial audit, the two issues below were reported by third parties. The fixes for those issues were included with our recommended fixes in our second phase review.</p>
+<h3 id="4-1-parameterizer-proposal-owner-never-gets-token-back-if-proposal-goes-unchallenged">4.1 - Parameterizer proposal owner never gets token back if proposal goes unchallenged</h3>
+<blockquote>
+<p>If a proposal is not challenged, and processProposal is called after the appExpiry date, but before the processBy date has elapsed, the proposal's value will be set, but the prop owner will never get their tokens back.</p>
+</blockquote>
+<p><a href="https://github.com/skmgoldin/tcr/issues/30">https://github.com/skmgoldin/tcr/issues/30</a></p>
+<p><strong>Resolution</strong></p>
+<p>This issue was resolved in <code style="font-family: &quot;Fira Code&quot;;">tcr</code> commit <a href="https://github.com/skmgoldin/tcr/commit/106410c6a5be6847c8591e4e8888166be75ec323"><code style="font-family: &quot;Fira Code&quot;;">106410c6</code></a>.</p>
+<blockquote>
+<ul>
+<li>Add an integrity check in processProposal.js asserting that the proposer's balance is as-expected following a successful, unchallenged processing of their proposal.</li>
+<li>Add a token transfer in the first clause of processProposal's if-else logic to the prop owner of their entire deposit amount.</li>
+<li>Grab values for prop.owner and prop.deposit at the top of processProposal so that they can be used in both the first and third clauses.</li>
+</ul>
+</blockquote>
+<h3 id="4-2-plcrvoting-edge-case">4.2 - PLCRVoting edge case</h3>
+<p>This issue was reported in <a href="https://github.com/skmgoldin/tcr/pull/40"><code style="font-family: &quot;Fira Code&quot;;">tcr#40</code></a>, then clarified in <code style="font-family: &quot;Fira Code&quot;;">PLCRVoting</code> commit <a href="https://github.com/ConsenSys/PLCRVoting/commit/1a4fea9ab4033b2e63bb5e17fcd5e18652450c16"><code style="font-family: &quot;Fira Code&quot;;">1a4fea9a</code></a>:</p>
+<blockquote>
+<p>The getInsertPointForNumTokens function fails to provide correct insert points in a number of cases involving in-place updates.</p>
+<p>For in-place updates where the new value is greater than or equal to the old value, the function will return, incorrectly, the insert point as being the same pollID as the poll being updated.</p>
+<p>For in-place updates where the node being updated's token value is zero, the function will always compute, incorrectly, that the correct insert point is at the end of the list.</p>
+</blockquote>
+<p><strong>Resolution</strong></p>
+<p>This issue was resolved in <code style="font-family: &quot;Fira Code&quot;;">PLCRVoting</code> commit <a href="https://github.com/ConsenSys/PLCRVoting/commit/1a4fea9ab4033b2e63bb5e17fcd5e18652450c16"><code style="font-family: &quot;Fira Code&quot;;">1a4fea9a</code></a> and <code style="font-family: &quot;Fira Code&quot;;">tcr</code> commit <a href="https://github.com/skmgoldin/tcr/commit/6ec8fcc6a098e8fc61b67539980fc0fe1c31f9f4"><code style="font-family: &quot;Fira Code&quot;;">6ec8fcc6</code></a>.</p>
+<h2 id="appendix-1-audit-participants">Appendix 1 - Audit Participants</h2>
+<p>Security audit was performed by Niran Babalola and Suhabe Bugara.</p>
+<h2 id="appendix-2-terminology">Appendix 2 - Terminology</h2>
+<h3 id="a-2-1-severity">A.2.1 - Severity</h3>
+<p>Measurement of magnitude of an issue.</p>
+<h4 id="a-2-1-1-minor">A.2.1.1 - minor</h4>
+<p>Minor issues are generally subjective in nature, or potentially deal with
+topics like "best practices" or "readability".  Minor issues in general will
+not indicate an actual problem or bug in code.</p>
+<p>The maintainers should use their own judgement as to whether addressing these
+issues improves the codebase.</p>
+<h4 id="a-2-1-2-medium">A.2.1.2 - medium</h4>
+<p>Medium issues are generally objective in nature but do not represent actual
+bugs or security problems.</p>
+<p>These issues should be addressed unless there is a clear reason not to.</p>
+<h4 id="a-2-1-3-major">A.2.1.3 - major</h4>
+<p>Major issues will be things like bugs or security vulnerabilities.  These
+issues may not be directly exploitable, or may require a certain condition to
+arise in order to be exploited.</p>
+<p>Left unaddressed these issues are highly likely to cause problems with the
+operation of the contract or lead to a situation which allows the system to be
+exploited in some way.</p>
+<h4 id="a-2-1-4-critical">A.2.1.4 - critical</h4>
+<p>Critical issues are directly exploitable bugs or security vulnerabilities.</p>
+<p>Left unaddressed these issues are highly likely or guaranteed to cause major
+problems or potentially a full failure in the operations of the contract.</p></body>
+</html>

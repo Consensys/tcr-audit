@@ -8,10 +8,11 @@
 	- [1.3 - Materials Included in Audit](#13---materials-included-in-audit)
 - [2 - General Findings](#2---general-findings)
 - [3 - Specific Findings](#3---specific-findings)
+- [4 - Third Party Findings](#4---third-party-findings)
 - [Appendix 1 - Audit Participants](#appendix-1---audit-participants)
 - [Appendix 2 - Terminology](#appendix-2---terminology)
 	- [A.2.1 - Coverage](#a21---coverage)
-	- [A.2.2 - Severity](#a22---severity)
+	- [A.2.1 - Severity](#a22---severity)
 <!--EP-->
 <!-- /MarkdownTOC -->
 <!-- Please don't change these comments -->
@@ -75,7 +76,7 @@ The `tcr` codebase contains a comprehensive test suite, but our code coverage to
 
 #### Source Code
 
-The audit covered the codebase as of commit [b2065612](https://github.com/skmgoldin/tcr/tree/b206561249ed1779f10aa4ba390ffee676148134).
+The audit covered the codebase as of commit [`b2065612`](https://github.com/skmgoldin/tcr/tree/b206561249ed1779f10aa4ba390ffee676148134). The second phase review after our recommendations covered the codebase as of commit [`db40cd3c`](https://github.com/skmgoldin/tcr/tree/db40cd3c1719e4afc1299867df7acc3244ced3e0).
 
 The codebase pulls in ethpm packages [`dll`](https://github.com/skmgoldin/sol-sdll) and [`attrstore`](https://github.com/skmgoldin/sol-attrstore) via Truffle. `PLCRVoting` is copied into the codebase from its [original source](https://github.com/ConsenSys/PLCRVoting).
 
@@ -93,6 +94,11 @@ Throughout the contract system, calls are made to the token contract followed by
 Move token contract calls after all state changes in each function. Alternatively, document that TCRs must use trusted token contracts that cannot call other contracts.
 
 <https://github.com/skmgoldin/tcr/issues/17>
+
+
+**Resolution**
+
+This recommendation was implemented in `PLCRVoting` commit [`abba14c1`](https://github.com/ConsenSys/PLCRVoting/commit/abba14c11e2bc022dc7ea03c0c98e3020071dd34) and `tcr` commit [`8f4823f3`](https://github.com/skmgoldin/tcr/commit/8f4823f3336d4505506d918aa3010d7736160c5b).
 
 
 
@@ -137,8 +143,9 @@ Remove the current item from the list as early as possible in the function, righ
 
 **Resolution**
 
-A failing test case for this issue was added in [3b5d3f56](https://github.com/skmgoldin/sol-dll/commit/3b5d3f5600106e06c0b7036a1fd5f123ad939fb0), and the recommended fix was made in [91cb2448](https://github.com/skmgoldin/sol-dll/commit/91cb2448432f8e5a98f14965f24d90e5bcf65ec2)
+A failing test case for this issue was added in [`3b5d3f56`](https://github.com/skmgoldin/sol-dll/commit/3b5d3f5600106e06c0b7036a1fd5f123ad939fb0), and the recommended fix was made in [`91cb2448`](https://github.com/skmgoldin/sol-dll/commit/91cb2448432f8e5a98f14965f24d90e5bcf65ec2).
 
+The code from that commit was published as version 1.0.4 of the `dll` package in ethpm. The `tcr` repository was updated to point to that version in [`924925ff`](https://github.com/skmgoldin/tcr/commit/924925ffb9b79b517e560ea706941d2e33eaa729).
 
 
 ### 3.2 - getCommitHash is an unreliable proof that _prevPollID exists
@@ -170,6 +177,11 @@ Attempting to generalize `hasBeenRevealed` risks locking up tokens. Replacing it
 <https://github.com/ConsenSys/PLCRVoting/issues/22>
 
 
+**Resolution**
+
+`PLCRVoting` commit [`1fec53b8`](https://github.com/ConsenSys/PLCRVoting/commit/1fec53b876156d8f219d09c5bc871e83c14b4fee) implements this recommendation with mappings for `didCommit` and `didReveal`. These changes were added to `tcr` in commit [`08ae65af`](https://github.com/skmgoldin/tcr/commit/08ae65af0698fa77b6666c17275769a51f2a8a17).
+
+
 
 ### 3.3 - Integer overflow in startPoll
 
@@ -184,6 +196,11 @@ Use [SafeMath](https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/con
 <https://github.com/ConsenSys/PLCRVoting/issues/25>
 
 
+**Resolution**
+
+`PLCRVoting` commit [`26579ec7`](https://github.com/ConsenSys/PLCRVoting/commit/26579ec7f645f868cdb4c7de4c764808882a5d3a) uses `SafeMath` for arithmetic in `startPoll`. The `tcr` repository was updated with this change in commit [`845b0498`](https://github.com/skmgoldin/tcr/commit/845b0498ecba0644c10213db936fed29df6c703c).
+
+
 
 ### 3.4 - pollExists is misleading and incomplete
 
@@ -196,6 +213,11 @@ Use [SafeMath](https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/con
 In `startPoll`, require reasonable stage times. Both must be greater than `block.timestamp`, and `commitEndDate` must be less than `revealEndDate`. Remove sanity checks from `pollExists` and just require that `_pollID <= pollNonce` so users can't vote on polls that haven't been started yet.
 
 <https://github.com/ConsenSys/PLCRVoting/issues/26>
+
+
+**Resolution**
+
+As described above, `PLCRVoting` commit [`26579ec7`](https://github.com/ConsenSys/PLCRVoting/commit/26579ec7f645f868cdb4c7de4c764808882a5d3a) replaces overflow-prone arithmetic with calls to `SafeMath`, which ensures that the stage times never overflow and produce unexpected values. `PLCRVoting` commit [`a069730f`](https://github.com/ConsenSys/PLCRVoting/commit/a069730fcd818c249574a38f922e871c8011fc4f) implements the recommended changes to `pollExists` with an additional check that the poll ID in question is not zero, which is an invalid poll ID. The `tcr` repository was updated with these changes in commits [`b0c1374e`](https://github.com/skmgoldin/tcr/commit/b0c1374e066e79a039870aa8099dc5872e2ccb5f) and [`845b0498`](https://github.com/skmgoldin/tcr/commit/845b0498ecba0644c10213db936fed29df6c703c).
 
 
 
@@ -216,6 +238,11 @@ In `challengeReparameterization`, don't reference `pMinDeposit`. Reference `prop
 <https://github.com/skmgoldin/tcr/issues/15>
 
 
+**Resolution**
+
+This recommendation was implemented in `tcr` commit [`1e71a652`](https://github.com/skmgoldin/tcr/commit/1e71a652affcfd55d26d0461cd140c033c6939f9).
+
+
 
 ### 3.6 - Integer underflow in challengeReparameterization
 
@@ -230,6 +257,10 @@ Use [SafeMath](https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/con
 <https://github.com/skmgoldin/tcr/issues/19>
 
 
+**Resolution**
+
+This recommendation was implemented in `tcr` commit [`a9f0d97d`](https://github.com/skmgoldin/tcr/commit/a9f0d97ddfa6a4fafeed9c087086994efd1fe4dc), along with a requirement for new proposals that the value for `pDispensationPct` and `dispensationPct` must be less than or equal to 100.
+
 
 ### 3.7 - Integer underflow in withdrawVotingRights
 
@@ -242,6 +273,11 @@ Use [SafeMath](https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/con
 Use [SafeMath](https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/math/SafeMath.sol) for arithmetic.
 
 <https://github.com/ConsenSys/PLCRVoting/issues/21>
+
+
+**Resolution**
+
+This recommendation was implemented in `PLCRVoting` commit [`c8df984d`](https://github.com/ConsenSys/PLCRVoting/commit/c8df984d5d80593b72363cd6ee0f1f0652bc5959), and in `tcr` commit [`c8fa4889`](https://github.com/skmgoldin/tcr/commit/c8fa488944db43065ed4d904a1a654f0760c578f).
 
 
 
@@ -258,6 +294,10 @@ Use [SafeMath](https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/con
 <https://github.com/skmgoldin/tcr/issues/18>
 
 
+**Resolution**
+
+This recommendation was implemented in `tcr` commit [`81c3274b`](https://github.com/skmgoldin/tcr/commit/81c3274b3c908e2034d243f41e3e89783c67dd1b).
+
 
 ### 3.9 - Integer overflow in Registry.apply
 
@@ -271,6 +311,10 @@ Use [SafeMath](https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/con
 
 <https://github.com/skmgoldin/tcr/issues/27>
 
+
+**Resolution**
+
+This recommendation was implemented in `tcr` commit [`9d8b7af5`](https://github.com/skmgoldin/tcr/commit/9d8b7af5fef7516dd6f84dfdce4f05109cae4a7e).
 
 
 ### 3.10 - Use EIP20Interface instead of EIP20
@@ -286,6 +330,10 @@ Use EIP20Interface instead of EIP20.
 * <https://github.com/ConsenSys/PLCRVoting/issues/24>
 * <https://github.com/skmgoldin/tcr/issues/25>
 
+
+**Resolution**
+
+This recommendation was implemented in `PLCRVoting` commit [`079c75d0`](https://github.com/ConsenSys/PLCRVoting/commit/079c75d08940dfb453cf5f46c7f57477a2487571) and `tcr` commit [`d735858c`](https://github.com/skmgoldin/tcr/commit/d735858c81297d597d335779e50a5f2baa729cce).
 
 
 ### 3.11 - Challenges with zero votes will succeed
@@ -306,6 +354,10 @@ Near the calls to `voting.isPassed`, document that either the challenge didn't g
 
 <https://github.com/skmgoldin/tcr/issues/16>
 
+**Resolution**
+
+The comments in `challengeWinnerReward` and `resolveChallenge` for both `Parameterizer.sol` and `Registry.sol` were updated to be consistent in `tcr` commit [`93d27093`](https://github.com/skmgoldin/tcr/commit/93d270938cacf33d70c45919f1985cc65a34757f).
+
 
 
 #### 3.12 - An unchallenged application cannot be cancelled
@@ -321,6 +373,46 @@ If this is desired behavior, keep it. Just pointing out the discrepancy.
 <https://github.com/skmgoldin/tcr/issues/28>
 
 
+**Resolution**
+
+No changes. This behavior will be documented.
+
+
+## 4 - Third Party Findings
+
+After the initial audit, the two issues below were reported by third parties. The fixes for those issues were included with our recommended fixes in our second phase review.
+
+
+### 4.1 - Parameterizer proposal owner never gets token back if proposal goes unchallenged
+
+> If a proposal is not challenged, and processProposal is called after the appExpiry date, but before the processBy date has elapsed, the proposal's value will be set, but the prop owner will never get their tokens back.
+
+<https://github.com/skmgoldin/tcr/issues/30>
+
+**Resolution**
+
+This issue was resolved in `tcr` commit [`106410c6`](https://github.com/skmgoldin/tcr/commit/106410c6a5be6847c8591e4e8888166be75ec323).
+
+> * Add an integrity check in processProposal.js asserting that the proposer's balance is as-expected following a successful, unchallenged processing of their proposal.
+* Add a token transfer in the first clause of processProposal's if-else logic to the prop owner of their entire deposit amount.
+* Grab values for prop.owner and prop.deposit at the top of processProposal so that they can be used in both the first and third clauses.
+
+
+### 4.2 - PLCRVoting edge case
+
+This issue was reported in [`tcr#40`](https://github.com/skmgoldin/tcr/pull/40), then clarified in `PLCRVoting` commit [`1a4fea9a`](https://github.com/ConsenSys/PLCRVoting/commit/1a4fea9ab4033b2e63bb5e17fcd5e18652450c16):
+
+> The getInsertPointForNumTokens function fails to provide correct insert points in a number of cases involving in-place updates.
+
+> For in-place updates where the new value is greater than or equal to the old value, the function will return, incorrectly, the insert point as being the same pollID as the poll being updated.
+
+> For in-place updates where the node being updated's token value is zero, the function will always compute, incorrectly, that the correct insert point is at the end of the list.
+
+**Resolution**
+
+This issue was resolved in `PLCRVoting` commit [`1a4fea9a`](https://github.com/ConsenSys/PLCRVoting/commit/1a4fea9ab4033b2e63bb5e17fcd5e18652450c16) and `tcr` commit [`6ec8fcc6`](https://github.com/skmgoldin/tcr/commit/6ec8fcc6a098e8fc61b67539980fc0fe1c31f9f4).
+
+
 ## Appendix 1 - Audit Participants
 
 Security audit was performed by Niran Babalola and Suhabe Bugara.
@@ -328,37 +420,13 @@ Security audit was performed by Niran Babalola and Suhabe Bugara.
 
 ## Appendix 2 - Terminology
 
-### A.2.1 - Coverage
 
-Measurement of the degree to which the source code is executed by the test suite.
-
-
-#### A.2.1.1 - untested
-
-No tests.
-
-
-#### A.2.1.2 - low
-
-The tests do not cover some set of non-trivial functionality.
-
-
-#### A.2.1.3 - good
-
-The tests cover all major functionality.
-
-
-#### A.2.1.4 - excellent
-
-The tests cover all code paths.
-
-
-### A.2.2 - Severity
+### A.2.1 - Severity
 
 Measurement of magnitude of an issue.
 
 
-#### A.2.2.1 - minor
+#### A.2.1.1 - minor
 
 Minor issues are generally subjective in nature, or potentially deal with
 topics like "best practices" or "readability".  Minor issues in general will
@@ -368,7 +436,7 @@ The maintainers should use their own judgement as to whether addressing these
 issues improves the codebase.
 
 
-#### A.2.2.2 - medium
+#### A.2.1.2 - medium
 
 Medium issues are generally objective in nature but do not represent actual
 bugs or security problems.
@@ -376,7 +444,7 @@ bugs or security problems.
 These issues should be addressed unless there is a clear reason not to.
 
 
-#### A.2.2.3 - major
+#### A.2.1.3 - major
 
 Major issues will be things like bugs or security vulnerabilities.  These
 issues may not be directly exploitable, or may require a certain condition to
@@ -387,10 +455,9 @@ operation of the contract or lead to a situation which allows the system to be
 exploited in some way.
 
 
-#### A.2.2.4 - critical
+#### A.2.1.4 - critical
 
 Critical issues are directly exploitable bugs or security vulnerabilities.
 
 Left unaddressed these issues are highly likely or guaranteed to cause major
 problems or potentially a full failure in the operations of the contract.
-
