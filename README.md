@@ -394,8 +394,8 @@ After the initial audit, the two issues below were reported by third parties. Th
 This issue was resolved in `tcr` commit [`106410c6`](https://github.com/skmgoldin/tcr/commit/106410c6a5be6847c8591e4e8888166be75ec323).
 
 > * Add an integrity check in processProposal.js asserting that the proposer's balance is as-expected following a successful, unchallenged processing of their proposal.
-* Add a token transfer in the first clause of processProposal's if-else logic to the prop owner of their entire deposit amount.
-* Grab values for prop.owner and prop.deposit at the top of processProposal so that they can be used in both the first and third clauses.
+> * Add a token transfer in the first clause of processProposal's if-else logic to the prop owner of their entire deposit amount.
+> * Grab values for prop.owner and prop.deposit at the top of processProposal so that they can be used in both the first and third clauses.
 
 
 ### 4.2 - PLCRVoting edge case
@@ -403,9 +403,9 @@ This issue was resolved in `tcr` commit [`106410c6`](https://github.com/skmgoldi
 This issue was reported in [`tcr#40`](https://github.com/skmgoldin/tcr/pull/40), then clarified in `PLCRVoting` commit [`1a4fea9a`](https://github.com/ConsenSys/PLCRVoting/commit/1a4fea9ab4033b2e63bb5e17fcd5e18652450c16):
 
 > The getInsertPointForNumTokens function fails to provide correct insert points in a number of cases involving in-place updates.
-
+>
 > For in-place updates where the new value is greater than or equal to the old value, the function will return, incorrectly, the insert point as being the same pollID as the poll being updated.
-
+>
 > For in-place updates where the node being updated's token value is zero, the function will always compute, incorrectly, that the correct insert point is at the end of the list.
 
 **Resolution**
