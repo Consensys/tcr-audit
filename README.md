@@ -78,7 +78,7 @@ The `tcr` codebase contains a comprehensive test suite, but our code coverage to
 
 The audit covered the codebase as of commit [`b2065612`](https://github.com/skmgoldin/tcr/tree/b206561249ed1779f10aa4ba390ffee676148134). The second phase review after our recommendations covered the codebase as of commit [`db40cd3c`](https://github.com/skmgoldin/tcr/tree/db40cd3c1719e4afc1299867df7acc3244ced3e0).
 
-The codebase pulls in ethpm packages [`dll`](https://github.com/skmgoldin/sol-sdll) and [`attrstore`](https://github.com/skmgoldin/sol-attrstore) via Truffle. `PLCRVoting` is copied into the codebase from its [original source](https://github.com/ConsenSys/PLCRVoting).
+The codebase pulls in ethpm packages [`dll`](https://github.com/skmgoldin/sol-sdll) and [`attrstore`](https://github.com/skmgoldin/sol-attrstore) via Truffle. During the initial review, `PLCRVoting` was copied into the codebase from its [original source](https://github.com/ConsenSys/PLCRVoting), but was changed to be consumed as an ethpm package before the second review.
 
 
 ## 2 - General Findings
